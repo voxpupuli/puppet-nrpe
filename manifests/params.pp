@@ -28,6 +28,8 @@ class nrpe::params {
         'nagios-nrpe-server',
         'nagios-plugins',
       ]
+      $sudo_command  = '/usr/bin/sudo'
+
     }
     'Solaris': {
       $libdir           = '/opt/csw/libexec/nagios-plugins'
@@ -42,6 +44,7 @@ class nrpe::params {
         'nrpe',
         'nagios_plugins',
       ]
+      $sudo_command  = '/usr/bin/sudo'
     }
     'RedHat':  {
       $libdir           = fact('os.architecture') ? {
@@ -59,6 +62,7 @@ class nrpe::params {
         'nrpe',
         'nagios-plugins-all',
       ]
+      $sudo_command  = '/usr/bin/sudo'
     }
     'FreeBSD': {
       $libdir           = '/usr/local/libexec/nagios'
@@ -73,6 +77,7 @@ class nrpe::params {
         'net-mgmt/nrpe',
         'net-mgmt/nagios-plugins',
       ]
+      $sudo_command  = '/usr/local/bin/sudo'
     }
     'OpenBSD': {
       $libdir           = '/usr/local/libexec/nagios'
@@ -87,6 +92,7 @@ class nrpe::params {
         'nrpe',
         'monitoring-plugins',
       ]
+      $sudo_command  = '/usr/bin/sudo'
     }
     'Suse':  {
       $libdir           = '/usr/lib/nagios/plugins'
@@ -104,6 +110,7 @@ class nrpe::params {
             'nagios-plugins',
             'nagios-plugins-nrpe',
           ]
+          $sudo_command  = '/usr/bin/sudo'
         }
         default:   {
           $nrpe_config      = '/etc/nrpe.cfg'
@@ -113,6 +120,7 @@ class nrpe::params {
             'nrpe',
             'nagios-plugins-all',
           ]
+          $sudo_command  = '/usr/bin/sudo'
         }
       }
     }
@@ -132,6 +140,7 @@ class nrpe::params {
         'net-analyzer/nrpe',
         'net-analyzer/nagios-plugins',
       ]
+      $sudo_command  = '/usr/bin/sudo'
     }
     default:   {
     }
