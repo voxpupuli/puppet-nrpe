@@ -105,7 +105,7 @@ class nrpe (
   Boolean                              $manage_package                  = true,
   Boolean                              $purge                           = false,
   Boolean                              $dont_blame_nrpe                 = $nrpe::params::dont_blame_nrpe,
-  Nrpe::Syslogfacility                 $log_facility                    = $nrpe::params::log_facility,
+  Stdlib::Syslogfacility               $log_facility                    = $nrpe::params::log_facility,
   Stdlib::Port::Unprivileged           $server_port                     = $nrpe::params::server_port,
   Optional[Stdlib::Absolutepath]       $command_prefix                  = $nrpe::params::command_prefix,
   Boolean                              $debug                           = $nrpe::params::debug,
