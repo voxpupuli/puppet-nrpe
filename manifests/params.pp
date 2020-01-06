@@ -16,77 +16,67 @@ class nrpe::params {
 
   case fact('os.family') {
     'Debian':  {
-      $libdir           = '/usr/lib/nagios/plugins'
-      $nrpe_user        = 'nagios'
-      $nrpe_group       = 'nagios'
-      $nrpe_pid_file    = '/var/run/nagios/nrpe.pid'
-      $nrpe_config      = '/etc/nagios/nrpe.cfg'
-      $nrpe_ssl_dir     = '/etc/nagios/nrpe-ssl'
-      $nrpe_include_dir = '/etc/nagios/nrpe.d'
-      $nrpe_service     = 'nagios-nrpe-server'
-      $nrpe_packages    = [
-        'nagios-nrpe-server',
-        'monitoring-plugins',
-      ]
+      $libdir                = '/usr/lib/nagios/plugins'
+      $nrpe_user             = 'nagios'
+      $nrpe_group            = 'nagios'
+      $nrpe_pid_file         = '/var/run/nagios/nrpe.pid'
+      $nrpe_config           = '/etc/nagios/nrpe.cfg'
+      $nrpe_ssl_dir          = '/etc/nagios/nrpe-ssl'
+      $nrpe_include_dir      = '/etc/nagios/nrpe.d'
+      $nrpe_service          = 'nagios-nrpe-server'
+      $nrpe_packages_daemon  = 'nagios-nrpe-server'
+      $nrpe_packages_plugins = 'monitoring-plugins'
     }
     'Solaris': {
-      $libdir           = '/opt/csw/libexec/nagios-plugins'
-      $nrpe_user        = 'nagios'
-      $nrpe_group       = 'nagios'
-      $nrpe_pid_file    = '/var/run/nrpe.pid'
-      $nrpe_config      = '/etc/opt/csw/nrpe.cfg'
-      $nrpe_ssl_dir     = '/etc/opt/csw/nrpe-ssl'
-      $nrpe_include_dir = '/etc/opt/csw/nrpe.d'
-      $nrpe_service     = 'cswnrpe'
-      $nrpe_packages    = [
-        'nrpe',
-        'nagios_plugins',
-      ]
+      $libdir                = '/opt/csw/libexec/nagios-plugins'
+      $nrpe_user             = 'nagios'
+      $nrpe_group            = 'nagios'
+      $nrpe_pid_file         = '/var/run/nrpe.pid'
+      $nrpe_config           = '/etc/opt/csw/nrpe.cfg'
+      $nrpe_ssl_dir          = '/etc/opt/csw/nrpe-ssl'
+      $nrpe_include_dir      = '/etc/opt/csw/nrpe.d'
+      $nrpe_service          = 'cswnrpe'
+      $nrpe_packages_daemon  = 'nrpe'
+      $nrpe_packages_plugins = 'nagios_plugins'
     }
     'RedHat':  {
       $libdir           = fact('os.architecture') ? {
         /x86_64/ => '/usr/lib64/nagios/plugins',
         default  => '/usr/lib/nagios/plugins',
       }
-      $nrpe_user        = 'nrpe'
-      $nrpe_group       = 'nrpe'
-      $nrpe_pid_file    = '/var/run/nrpe/nrpe.pid'
-      $nrpe_config      = '/etc/nagios/nrpe.cfg'
-      $nrpe_ssl_dir     = '/etc/nagios/nrpe-ssl'
-      $nrpe_include_dir = '/etc/nrpe.d'
-      $nrpe_service     = 'nrpe'
-      $nrpe_packages    = [
-        'nrpe',
-        'nagios-plugins-all',
-      ]
+      $nrpe_user             = 'nrpe'
+      $nrpe_group            = 'nrpe'
+      $nrpe_pid_file         = '/var/run/nrpe/nrpe.pid'
+      $nrpe_config           = '/etc/nagios/nrpe.cfg'
+      $nrpe_ssl_dir          = '/etc/nagios/nrpe-ssl'
+      $nrpe_include_dir      = '/etc/nrpe.d'
+      $nrpe_service          = 'nrpe'
+      $nrpe_packages_daemon  = 'nrpe'
+      $nrpe_packages_plugins = 'nagios-plugins-all'
     }
     'FreeBSD': {
-      $libdir           = '/usr/local/libexec/nagios'
-      $nrpe_user        = 'nagios'
-      $nrpe_group       = 'nagios'
-      $nrpe_pid_file    = '/var/run/nrpe2/nrpe2.pid'
-      $nrpe_config      = '/usr/local/etc/nrpe.cfg'
-      $nrpe_ssl_dir     = '/usr/local/etc/nrpe-ssl'
-      $nrpe_include_dir = '/usr/local/etc/nrpe.d'
-      $nrpe_service     = 'nrpe2'
-      $nrpe_packages    = [
-        'net-mgmt/nrpe',
-        'net-mgmt/nagios-plugins',
-      ]
+      $libdir                = '/usr/local/libexec/nagios'
+      $nrpe_user             = 'nagios'
+      $nrpe_group            = 'nagios'
+      $nrpe_pid_file         = '/var/run/nrpe2/nrpe2.pid'
+      $nrpe_config           = '/usr/local/etc/nrpe.cfg'
+      $nrpe_ssl_dir          = '/usr/local/etc/nrpe-ssl'
+      $nrpe_include_dir      = '/usr/local/etc/nrpe.d'
+      $nrpe_service          = 'nrpe2'
+      $nrpe_packages_daemon  = 'net-mgmt/nrpe'
+      $nrpe_packages_plugins = 'net-mgmt/nagios-plugins'
     }
     'OpenBSD': {
-      $libdir           = '/usr/local/libexec/nagios'
-      $nrpe_user        = '_nrpe'
-      $nrpe_group       = '_nrpe'
-      $nrpe_pid_file    = '/var/run/nrpe/nrpe.pid'
-      $nrpe_config      = '/etc/nrpe.cfg'
-      $nrpe_ssl_dir     = '/etc/nrpe-ssl'
-      $nrpe_include_dir = '/etc/nrpe.d'
-      $nrpe_service     = 'nrpe'
-      $nrpe_packages    = [
-        'nrpe',
-        'monitoring-plugins',
-      ]
+      $libdir                = '/usr/local/libexec/nagios'
+      $nrpe_user             = '_nrpe'
+      $nrpe_group            = '_nrpe'
+      $nrpe_pid_file         = '/var/run/nrpe/nrpe.pid'
+      $nrpe_config           = '/etc/nrpe.cfg'
+      $nrpe_ssl_dir          = '/etc/nrpe-ssl'
+      $nrpe_include_dir      = '/etc/nrpe.d'
+      $nrpe_service          = 'nrpe'
+      $nrpe_packages_daemon  = 'nrpe'
+      $nrpe_packages_plugins = 'monitoring-plugins'
     }
     'Suse':  {
       $libdir           = '/usr/lib/nagios/plugins'
@@ -96,23 +86,18 @@ class nrpe::params {
       $nrpe_service     = 'nrpe'
       case fact('os.name') {
         'SLES': {
-          $nrpe_config      = '/etc/nagios/nrpe.cfg'
-          $nrpe_ssl_dir     = '/etc/nagios/nrpe-ssl'
-          $nrpe_include_dir = '/etc/nagios/nrpe.d'
-          $nrpe_packages    = [
-            'nagios-nrpe',
-            'nagios-plugins',
-            'nagios-plugins-nrpe',
-          ]
+          $nrpe_config           = '/etc/nagios/nrpe.cfg'
+          $nrpe_ssl_dir          = '/etc/nagios/nrpe-ssl'
+          $nrpe_include_dir      = '/etc/nagios/nrpe.d'
+          $nrpe_packages_daemon  = 'nagios-nrpe'
+          $nrpe_packages_plugins = ['nagios-plugins', 'nagios-plugins-nrpe']
         }
         default:   {
-          $nrpe_config      = '/etc/nrpe.cfg'
-          $nrpe_ssl_dir     = '/etc/nrpe-ssl'
-          $nrpe_include_dir = '/etc/nrpe.d'
-          $nrpe_packages    = [
-            'nrpe',
-            'nagios-plugins-all',
-          ]
+          $nrpe_config           = '/etc/nrpe.cfg'
+          $nrpe_ssl_dir          = '/etc/nrpe-ssl'
+          $nrpe_include_dir      = '/etc/nrpe.d'
+          $nrpe_packages_daemon  = 'nrpe'
+          $nrpe_packages_plugins = 'nagios-plugins-all'
         }
       }
     }
@@ -121,20 +106,22 @@ class nrpe::params {
         /amd64|x86_64/ => '/usr/lib64/nagios/plugins',
         default        => '/usr/lib/nagios/plugins',
       }
-      $nrpe_user        = 'nagios'
-      $nrpe_group       = 'nagios'
-      $nrpe_pid_file    = '/var/run/nrpe.pid'
-      $nrpe_config      = '/etc/nagios/nrpe.cfg'
-      $nrpe_ssl_dir     = '/etc/nagios/nrpe-ssl'
-      $nrpe_include_dir = '/etc/nagios/nrpe.d'
-      $nrpe_service     = 'nrpe'
-      $nrpe_packages    = [
-        'net-analyzer/nrpe',
-        'net-analyzer/nagios-plugins',
-      ]
+      $nrpe_user             = 'nagios'
+      $nrpe_group            = 'nagios'
+      $nrpe_pid_file         = '/var/run/nrpe.pid'
+      $nrpe_config           = '/etc/nagios/nrpe.cfg'
+      $nrpe_ssl_dir          = '/etc/nagios/nrpe-ssl'
+      $nrpe_include_dir      = '/etc/nagios/nrpe.d'
+      $nrpe_service          = 'nrpe'
+      $nrpe_packages_daemon  = 'net-analyzer/nrpe'
+      $nrpe_packages_plugins = 'net-analyzer/nagios-plugins'
     }
     default:   {
     }
+  }
+
+  if $nrpe_packages_daemon and $nrpe_packages_plugins {
+    $nrpe_packages = [$nrpe_packages_daemon] + $nrpe_packages_plugins
   }
 
   $dont_blame_nrpe                 = false
