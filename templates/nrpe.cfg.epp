@@ -121,7 +121,7 @@ dont_blame_nrpe=<%= $dont_blame_nrpe %>
 
 #allow_bash_command_substitution=0
 <% if $allow_bash_command_substitution { -%>
-allow_bash_command_substitution=<%= $allow_bash_command_substitution %>
+allow_bash_command_substitution=1
 <%- } -%>
 
 
