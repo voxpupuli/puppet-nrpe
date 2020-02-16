@@ -7,7 +7,7 @@
   String                         $nrpe_group,
   Array[Stdlib::Host]            $allowed_hosts,
   Enum['0','1']                  $dont_blame_nrpe,
-  Optional[Boolean]              $allow_bash_command_substitution,
+  Optional[Enum['0','1']]        $allow_bash_command_substitution,
   Stdlib::Absolutepath           $libdir,
   Optional[Stdlib::Absolutepath] $command_prefix,
   Enum['0','1']                  $debug,
