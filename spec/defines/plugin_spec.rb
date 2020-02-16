@@ -19,6 +19,8 @@ describe 'nrpe::plugin' do
       case facts[:osfamily]
       when 'Debian'
         it { is_expected.to contain_file('/usr/lib/nagios/plugins/check_users').that_requires('Package[nagios-nrpe-server]') }
+      when 'Gentoo'
+        it { is_expected.to contain_file('/usr/lib/nagios/plugins/check_users').that_requires('Package[net-analyzer/nrpe]') }
       else
         it { is_expected.to contain_file('/usr/lib64/nagios/plugins/check_users').that_requires('Package[nrpe]') }
       end

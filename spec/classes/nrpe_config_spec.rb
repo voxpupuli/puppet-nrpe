@@ -36,7 +36,7 @@ describe 'nrpe::config' do
         end
 
         case facts[:osfamily]
-        when 'Debian'
+        when 'Debian','Gentoo'
           it { is_expected.to contain_user('nagios').with_groups(%w[foo bar]) }
         else
           it { is_expected.to contain_user('nrpe').with_groups(%w[foo bar]) }
