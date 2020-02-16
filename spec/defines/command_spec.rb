@@ -23,6 +23,12 @@ describe 'nrpe::command' do
             'mode' => '0644'
           ).that_requires(['Package[nagios-nrpe-server]'])
         }
+      when 'Gentoo'
+        it {
+          is_expected.to contain_file('/etc/nagios/nrpe.d/check_users.cfg').with(
+            'mode' => '0644'
+          ).that_requires(['Package[net-analyzer/nrpe]'])
+        }
       else
         it {
           is_expected.to contain_file('/etc/nrpe.d/check_users.cfg').with(
