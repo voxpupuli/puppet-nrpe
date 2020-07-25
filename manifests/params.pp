@@ -2,7 +2,6 @@
 #
 # @api private
 class nrpe::params {
-
   $nrpe_provider = fact('os.family') ? {
     'Solaris' => pkgutil,
     default   => undef,

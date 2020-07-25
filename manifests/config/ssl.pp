@@ -1,8 +1,7 @@
 # @summary Configures SSL for NRPE
 #
 # @api private
-class nrpe::config::ssl
-{
+class nrpe::config::ssl {
   $_ssl_client_certs = $nrpe::ssl_client_certs ? {
     'ask'     => '1',
     'require' => '2',
@@ -28,7 +27,7 @@ class nrpe::config::ssl
         )
       }
     ),
-    order   =>  '02',
+    order   => '02',
   }
 
   file { $nrpe::nrpe_ssl_dir:

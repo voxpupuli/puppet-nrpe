@@ -1,8 +1,7 @@
 # @summary Configures NRPE
 #
 # @api private
-class nrpe::config
-{
+class nrpe::config {
   unless $nrpe::supplementary_groups.empty {
     user { $nrpe::nrpe_user:
       gid    => $nrpe::nrpe_group,

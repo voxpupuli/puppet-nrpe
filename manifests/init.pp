@@ -136,7 +136,6 @@ class nrpe (
   Optional[String[1]]                  $provider                        = $nrpe::params::nrpe_provider,
   String[1]                            $service_name                    = $nrpe::params::nrpe_service,
 ) inherits nrpe::params {
-
   # Extra validation
   if $ssl_cert_file_content {
     assert_type(String[1], $ssl_privatekey_file_content)
