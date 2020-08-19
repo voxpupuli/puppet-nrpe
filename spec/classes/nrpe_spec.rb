@@ -90,6 +90,98 @@ describe 'nrpe' do
 
         it { is_expected.to compile.with_all_deps }
       end
+
+      context 'when manage_group is true' do
+        let(:params) { { 'manage_group' => true } }
+
+        case facts[:osfamily]
+        when 'OpenBSD'
+          it { is_expected.to contain_group('_nrpe') }
+        when 'RedHat'
+          it { is_expected.to contain_group('nrpe') }
+        else
+          it { is_expected.to contain_group('nagios') }
+        end
+      end
+
+      context 'when manage_user is true' do
+        let(:params) { { 'manage_user' => true } }
+
+        case facts[:osfamily]
+        when 'FreeBSD'
+          it {
+            is_expected.to contain_user('nagios').
+              with_gid('nagios').
+              with_home('/var/spool/nagios').
+              with_shell('/sbin/nologin')
+          }
+        when 'Gentoo'
+          it {
+            is_expected.to contain_user('nagios').
+              with_gid('nagios').
+              with_home('/dev/null').
+              with_shell('/sbin/nologin')
+          }
+
+        when 'OpenBSD'
+          it {
+            is_expected.to contain_user('_nrpe').
+              with_gid('_nrpe').
+              with_home('/var/lib/nagios').
+              with_shell('/bin/false')
+          }
+        when 'RedHat'
+          it {
+            is_expected.to contain_user('nrpe').
+              with_gid('nrpe').
+              with_home('/var/run/nrpe').
+              with_shell('/sbin/nologin')
+          }
+        else
+          it {
+            is_expected.to contain_user('nagios').
+              with_gid('nagios').
+              with_home('/var/lib/nagios').
+              with_shell('/bin/false')
+          }
+        end
+      end
+
+      context 'when manage_group and manage_user are true' do
+        let(:params) do
+          {
+            'manage_group' => true,
+            'manage_user'  => true
+          }
+        end
+
+        case facts[:osfamily]
+        when 'OpenBSD'
+          it {
+            is_expected.to contain_group('_nrpe')
+          }
+
+          it {
+            is_expected.to contain_user('_nrpe').with_require('Group[_nrpe]')
+          }
+        when 'RedHat'
+          it {
+            is_expected.to contain_group('nrpe')
+          }
+
+          it {
+            is_expected.to contain_user('nrpe').with_require('Group[nrpe]')
+          }
+        else
+          it {
+            is_expected.to contain_group('nagios')
+          }
+
+          it {
+            is_expected.to contain_user('nagios').with_require('Group[nagios]')
+          }
+        end
+      end
     end
   end
 end

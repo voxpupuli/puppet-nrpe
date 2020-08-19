@@ -91,6 +91,16 @@
 #   Whether to log details of client SSL certificates.
 # @param manage_pid_dir
 #   Whether to manage the directory where the PID file should exist.
+# @param manage_group
+#   Whether to manage the group nrpe uses.
+# @param manage_user
+#   Whether to manage the user nrpe uses.
+# @param user_comment
+#   An optional string to use for the user's GECOS field.
+# @param user_home_dir
+#   The absolute path to the home directory to use for the user.
+# @param user_shell
+#   The absolute path to the shell to use for the user.
 # @param config
 #   **Private** You should not need to override this parameter.
 # @param include_dir
@@ -139,6 +149,11 @@ class nrpe (
   Array[String[1]]                     $supplementary_groups            = [],
   Boolean                              $manage_pid_dir                  = false,
   Integer[0]                           $listen_queue_size               = $nrpe::params::listen_queue_size,
+  Boolean                              $manage_user                     = false,
+  Boolean                              $manage_group                    = false,
+  Optional[String]                     $user_comment                    = undef,
+  Stdlib::Absolutepath                 $user_home_dir                   = $nrpe::params::user_home_dir,
+  Stdlib::Absolutepath                 $user_shell                      = $nrpe::params::user_shell,
 
   # Private parameters.  You shouldn't need to override these.
   Stdlib::Absolutepath                 $config                          = $nrpe::params::nrpe_config,
