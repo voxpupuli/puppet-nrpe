@@ -38,11 +38,11 @@
 # @param package_name_daemon
 #   The nrpe daemon package name or array of package names that will be installed. The default is often fine, but you may wish to set this to install extra packages like `nrpe-selinux`.
 # @param manage_package_daemon
-#   By default, set to `true` and the `nrpe` class will manage the OS daemon package.
+#   By default, set to `false`.  Have the `nrpe` class manage just the OS daemon package.  Only effective when `manage_package` is `false`.
 # @param package_name_plugins
 #   The plugin package name or array of package names that will be installed. The default is often fine, but you may wish to set this to install extra packages.
 # @param manage_package_plugins
-#   By default, set to `true` and the `nrpe` class will manage the OS plugins package(s).
+#   By default, set to `false`.  Have the `nrpe` class manage just the OS plugins package(s).  Only effective when `manage_package` is `false`.
 # @param purge
 #   When set to true, the module will purge any unmanaged commands from the NRPE includedir.
 # @param dont_blame_nrpe
@@ -116,9 +116,9 @@ class nrpe (
   Variant[String[1], Array[String[1]]] $package_name                    = $nrpe::params::nrpe_packages,
   Boolean                              $manage_package                  = true,
   Variant[String[1], Array[String[1]]] $package_name_daemon             = $nrpe::params::nrpe_packages_daemon,
-  Boolean                              $manage_package_daemon           = true,
+  Boolean                              $manage_package_daemon           = false,
   Variant[String[1], Array[String[1]]] $package_name_plugins            = $nrpe::params::nrpe_packages_plugins,
-  Boolean                              $manage_package_plugins          = true,
+  Boolean                              $manage_package_plugins          = false,
   Boolean                              $purge                           = false,
   Boolean                              $dont_blame_nrpe                 = $nrpe::params::dont_blame_nrpe,
   Nrpe::Syslogfacility                 $log_facility                    = $nrpe::params::log_facility,
