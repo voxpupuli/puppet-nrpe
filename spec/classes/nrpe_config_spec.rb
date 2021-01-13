@@ -42,6 +42,36 @@ describe 'nrpe::config' do
           it { is_expected.to contain_user('nrpe').with_groups(%w[foo bar]) }
         end
       end
+
+      describe 'allow_bash_command_substitution' do
+        context 'by default' do
+          let(:pre_condition) { 'include nrpe' }
+
+          it { is_expected.not_to contain_concat__fragment('nrpe main config').with_content(%r{^allow_bash_command_substitution}) }
+        end
+        context 'when true' do
+          let(:pre_condition) do
+            <<-PRE_CONDITION
+            class { 'nrpe':
+              allow_bash_command_substitution => true,
+            }
+            PRE_CONDITION
+          end
+
+          it { is_expected.to contain_concat__fragment('nrpe main config').with_content(%r{^allow_bash_command_substitution=1$}) }
+        end
+        context 'when false' do
+          let(:pre_condition) do
+            <<-PRE_CONDITION
+            class { 'nrpe':
+              allow_bash_command_substitution => false,
+            }
+            PRE_CONDITION
+          end
+
+          it { is_expected.to contain_concat__fragment('nrpe main config').with_content(%r{^allow_bash_command_substitution=0$}) }
+        end
+      end
     end
   end
 end
