@@ -38,6 +38,7 @@ class nrpe::params {
             'nagios-plugins',
           ]
         }
+      }
     }
     'Solaris': {
       $libdir           = '/opt/csw/libexec/nagios-plugins'
