@@ -24,10 +24,20 @@ class nrpe::params {
       $nrpe_ssl_dir     = '/etc/nagios/nrpe-ssl'
       $nrpe_include_dir = '/etc/nagios/nrpe.d'
       $nrpe_service     = 'nagios-nrpe-server'
-      $nrpe_packages    = [
-        'nagios-nrpe-server',
-        'nagios-plugins',
-      ]
+      
+      case fact('os.release.full') {
+        '20.04':  {
+          $nrpe_packages    = [
+            'nagios-nrpe-server',
+            'monitoring-plugins',
+          ]
+        }
+        default:   {
+          $nrpe_packages    = [
+            'nagios-nrpe-server',
+            'nagios-plugins',
+          ]
+        }
     }
     'Solaris': {
       $libdir           = '/opt/csw/libexec/nagios-plugins'
