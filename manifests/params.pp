@@ -32,6 +32,12 @@ class nrpe::params {
             'monitoring-plugins',
           ]
         }
+        '10.7':  {
+          $nrpe_packages    = [
+            'nagios-nrpe-server',
+            'monitoring-plugins',
+          ]
+        }
         default:   {
           $nrpe_packages    = [
             'nagios-nrpe-server',
