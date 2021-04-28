@@ -100,7 +100,7 @@
 # @param service_name
 #   **Private** You should not need to override this parameter.
 class nrpe (
-  Array[Stdlib::Host]                  $allowed_hosts                   = ['127.0.0.1'],
+  Array[Variant[Stdlib::Fqdn,Stdlib::IP::Address]]                  $allowed_hosts                   = ['127.0.0.1'],
   Stdlib::IP::Address                  $server_address                  = '0.0.0.0',
   Hash                                 $commands                        = {},
   Hash                                 $plugins                         = {},

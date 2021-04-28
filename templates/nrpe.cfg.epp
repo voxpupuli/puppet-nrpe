@@ -5,7 +5,7 @@
   Stdlib::IP::Address            $server_address,
   String                         $nrpe_user,
   String                         $nrpe_group,
-  Array[Stdlib::Host]            $allowed_hosts,
+  Array[Variant[Stdlib::Fqdn,Stdlib::IP::Address]]            $allowed_hosts,
   Enum['0','1']                  $dont_blame_nrpe,
   Optional[Boolean]              $allow_bash_command_substitution,
   Stdlib::Absolutepath           $libdir,
