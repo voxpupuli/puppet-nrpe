@@ -57,6 +57,36 @@ describe 'nrpe' do
 
         it { is_expected.not_to contain_file('nrpe_pid_dir') }
       end
+
+      context 'when allowed_hosts is a hostname' do
+        let(:params) { { 'allowed_hosts' => [ 'test.example.com' ] } }
+
+        it { is_expected.to compile.with_all_deps }
+      end
+
+      context 'when allowed_hosts is a ipv4 address' do
+        let(:params) { { 'allowed_hosts' => [ '127.0.0.1' ] } }
+
+        it { is_expected.to compile.with_all_deps }
+      end
+
+      context 'when allowed_hosts is a ipv4 subnet' do
+        let(:params) { { 'allowed_hosts' => [ '127.0.0.1/8' ] } }
+
+        it { is_expected.to compile.with_all_deps }
+      end
+
+      context 'when allowed_hosts is a ipv6 address' do
+        let(:params) { { 'allowed_hosts' => [ '::1' ] } }
+
+        it { is_expected.to compile.with_all_deps }
+      end
+
+      context 'when allowed_hosts is a ipv6 subnet' do
+        let(:params) { { 'allowed_hosts' => [ '2001::/96' ]} }
+
+        it { is_expected.to compile.with_all_deps }
+      end
     end
   end
 end
