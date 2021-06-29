@@ -245,6 +245,8 @@ The following strings are known to work:
 * debian10
 * centos7
 * centos8
+* freebsd12
+* freebsd13
 
 For more information and tips & tricks, see [voxpupuli-acceptance's documentation](https://github.com/voxpupuli/voxpupuli-acceptance#running-tests).
 
