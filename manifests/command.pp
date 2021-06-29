@@ -20,10 +20,11 @@
 #   The user to run the command as when using sudo.
 define nrpe::command (
   String[1]                  $command,
-  Enum['present', 'absent']  $ensure    = present,
-  Optional[Stdlib::Filemode] $file_mode = undef,
-  Boolean                    $sudo      = false,
-  String[1]                  $sudo_user = 'root',
+  Enum['present', 'absent']  $ensure       = present,
+  Optional[Stdlib::Filemode] $file_mode    = undef,
+  Boolean                    $sudo         = false,
+  String[1]                  $sudo_user    = 'root',
+  String[1]                  $sudo_command = $nrpe::params::sudo_command,
 ) {
   include nrpe
 
