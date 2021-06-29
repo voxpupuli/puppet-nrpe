@@ -19,7 +19,6 @@
 # @param sudo_user
 #   The user to run the command as when using sudo.
 define nrpe::command (
-<<<<<<< HEAD
   String[1]                  $command,
   Enum['present', 'absent']  $ensure       = present,
   Optional[Stdlib::Filemode] $file_mode    = undef,
