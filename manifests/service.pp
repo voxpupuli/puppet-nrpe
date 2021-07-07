@@ -5,7 +5,7 @@ class nrpe::service {
   if $nrpe::manage_pid_dir {
     $pid_dir = dirname($nrpe::nrpe_pid_file)
 
-    if $nrpe::manage_package {
+    if $nrpe::manage_package or $nrpe::manage_packages_daemon {
       $req_package = Package[$nrpe::package_name]
     } else {
       $req_package = undef

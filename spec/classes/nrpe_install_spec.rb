@@ -28,6 +28,19 @@ describe 'nrpe::install' do
 
         it { is_expected.not_to contain_package('nrpe') }
       end
+
+      context 'when manage_package is false but manage_package_daemon is true' do
+        let(:pre_condition) { 'class {\'nrpe\': manage_package => false, manage_package_daemon => true}' }
+
+        case facts[:osfamily]
+        when 'Debian'
+          it { is_expected.to contain_package('nagios-nrpe-server').with_ensure('installed') }
+        when 'Gentoo'
+          it { is_expected.to contain_package('net-analyzer/nrpe').with_ensure('installed') }
+        else
+          it { is_expected.to contain_package('nrpe').with_ensure('installed') }
+        end
+      end
     end
   end
 end
