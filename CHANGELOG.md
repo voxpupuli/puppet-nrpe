@@ -4,6 +4,29 @@ All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
 These should not affect the functionality of the module.
 
+## [v6.0.0](https://github.com/voxpupuli/puppet-nrpe/tree/v6.0.0) (2023-03-10)
+
+[Full Changelog](https://github.com/voxpupuli/puppet-nrpe/compare/v5.0.0...v6.0.0)
+
+**Breaking changes:**
+
+- Drop EOL Debian 8, Ubuntu 16.04 [\#55](https://github.com/voxpupuli/puppet-nrpe/pull/55) ([smortex](https://github.com/smortex))
+
+**Implemented enhancements:**
+
+- NRPEv3 Support for FreeBSD - Add param listen\_queue\_size [\#64](https://github.com/voxpupuli/puppet-nrpe/pull/64) ([Toutzn](https://github.com/Toutzn))
+- Add support for Debian 10, 11 and Ubuntu 18.04, 20.04 [\#56](https://github.com/voxpupuli/puppet-nrpe/pull/56) ([smortex](https://github.com/smortex))
+
+**Closed issues:**
+
+- nrpe Package on 20.04 is Persistently Reinstalling as a Corrective Action [\#65](https://github.com/voxpupuli/puppet-nrpe/issues/65)
+
+**Merged pull requests:**
+
+- docs: fix typo [\#62](https://github.com/voxpupuli/puppet-nrpe/pull/62) ([MindTooth](https://github.com/MindTooth))
+- dont hardcode facter versions in tests [\#61](https://github.com/voxpupuli/puppet-nrpe/pull/61) ([bastelfreak](https://github.com/bastelfreak))
+- Allow stdlib 8.0.0 [\#53](https://github.com/voxpupuli/puppet-nrpe/pull/53) ([smortex](https://github.com/smortex))
+
 ## [v5.0.0](https://github.com/voxpupuli/puppet-nrpe/tree/v5.0.0) (2021-05-06)
 
 [Full Changelog](https://github.com/voxpupuli/puppet-nrpe/compare/v4.0.0...v5.0.0)
