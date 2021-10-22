@@ -43,9 +43,7 @@ class nrpe::config {
     order   => '01',
   }
 
-  if $nrpe::ssl_cert_file_content {
-    contain nrpe::config::ssl
-  }
+  contain nrpe::config::ssl
 
   concat::fragment { 'nrpe includedir':
     target  => $nrpe::config,

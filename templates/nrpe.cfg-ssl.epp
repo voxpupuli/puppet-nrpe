@@ -30,11 +30,12 @@ ssl_version=<%= $ssl_version %>
 #ssl_cipher_list=ALL:!aNULL:!eNULL:!SSLv2:!LOW:!EXP:!RC4:!MD5:@STRENGTH
 ssl_cipher_list=<%= $ssl_ciphers.join(':') %>
 
+<% if $ssl_client_certs != '0' { -%>
 # SSL Certificate and Private Key Files
-
 ssl_cacert_file=<%= $nrpe_ssl_dir%>/ca-cert.pem
 ssl_cert_file=<%= $nrpe_ssl_dir%>/nrpe-cert.pem
 ssl_privatekey_file=<%= $nrpe_ssl_dir%>/nrpe-key.pem
+<% } end -%>
 
 # SSL USE CLIENT CERTS
 # This options determines client certificate usage.
