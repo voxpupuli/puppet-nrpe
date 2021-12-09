@@ -18,7 +18,7 @@
 ## Module Description
 
 NRPE (Nagios Remote Plugin Executor) allows you to remotely execute Nagios plugins on other Linux/Unix machines. This allows you to monitor remote machine metrics (disk usage, CPU load, etc.).
-This puppet module manages the instllation and configuration of NRPE.  It can install NRPE plugins and setup NRPE commands.  Secure communication to NRPE using SSL is also supported.
+This puppet module manages the installation and configuration of NRPE.  It can install NRPE plugins and setup NRPE commands.  Secure communication to NRPE using SSL is also supported.
 
 ## Setup
 
