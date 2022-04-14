@@ -14,6 +14,7 @@
   Integer                                          $command_timeout,
   Integer                                          $connection_timeout,
   Enum['0','1']                                    $allow_weak_random_seed,
+  Integer                                          $listen_queue_size,
 | -%>
 
 #
@@ -51,6 +52,14 @@ server_port=<%= $server_port %>
 # NOTE: This option is ignored if NRPE is running under either inetd or xinetd
 
 server_address=<%= $server_address %>
+
+
+
+# LISTEN QUEUE SIZE
+# Listen queue size (backlog) for serving incoming connections.
+# You may want to increase this value under high load.
+
+listen_queue_size=<%= $listen_queue_size %>
 
 
 
