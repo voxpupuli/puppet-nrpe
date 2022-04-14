@@ -334,6 +334,14 @@ Whether to log details of client SSL certificates.
 
 Default value: `false`
 
+##### `listen_queue_size`
+
+Data type: `Integer[0]`
+
+Listen queue size (backlog) for serving incoming connections. You may want to increase this value under high load.
+
+Default value: `16`
+
 ##### `config`
 
 Data type: `Stdlib::Absolutepath`
