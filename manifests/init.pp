@@ -135,6 +135,7 @@ class nrpe (
   Stdlib::Filemode                     $command_file_default_mode       = '0644',
   Array[String[1]]                     $supplementary_groups            = [],
   Boolean                              $manage_pid_dir                  = false,
+  Integer[0]                           $listen_queue_size               = $nrpe::params::listen_queue_size,
 
   # Private parameters.  You shouldn't need to override these.
   Stdlib::Absolutepath                 $config                          = $nrpe::params::nrpe_config,
