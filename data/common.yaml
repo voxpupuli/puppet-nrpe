@@ -1,0 +1,5 @@
+lookup_options:
+  nrpe::commands:
+    merge: deep
+  nrpe::plugins:
+    merge: deep
