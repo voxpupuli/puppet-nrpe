@@ -156,15 +156,11 @@ class nrpe (
   -> Class['nrpe::config']
   ~> Class['nrpe::service']
 
-  $commands.each |String $key, Hash $attrs| {
-    nrpe::command { $key:
-      * => $attrs,
-    }
+  if $commands {
+    create_resources('nrpe::command', $commands)
   }
-  $plugins.each |String $key, Hash $attrs| {
-    nrpe::plugin { $key:
-      * => $attrs,
-    }
+  if $plugins {
+    create_resources('nrpe::plugin', $plugins)
   }
 
   Class['nrpe::install'] -> Nrpe::Plugin <||>
