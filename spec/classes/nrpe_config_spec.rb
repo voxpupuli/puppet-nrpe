@@ -17,7 +17,6 @@ describe 'nrpe::config' do
           it { is_expected.to contain_concat('/etc/nagios/nrpe.cfg') }
         end
 
-        it { is_expected.to contain_concat('/etc/nagios/nrpe.cfg') }
         it { is_expected.to contain_concat__fragment('nrpe main config') }
         it { is_expected.to contain_concat__fragment('nrpe includedir') }
         it { is_expected.to contain_file('nrpe_include_dir').with_ensure('directory') }
