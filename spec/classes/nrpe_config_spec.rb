@@ -11,17 +11,16 @@ describe 'nrpe::config' do
         let(:pre_condition) { 'include nrpe' }
 
         case facts[:osfamily]
-          when 'FreeBSD'
-            it { is_expected.to contain_concat('/usr/local/etc/nrpe.cfg') }
-          else
-            it { is_expected.to contain_concat('/etc/nagios/nrpe.cfg') }
-          end
-
+        when 'FreeBSD'
+          it { is_expected.to contain_concat('/usr/local/etc/nrpe.cfg') }
+        else
           it { is_expected.to contain_concat('/etc/nagios/nrpe.cfg') }
-          it { is_expected.to contain_concat__fragment('nrpe main config') }
-          it { is_expected.to contain_concat__fragment('nrpe includedir') }
-          it { is_expected.to contain_file('nrpe_include_dir').with_ensure('directory') }
         end
+
+        it { is_expected.to contain_concat('/etc/nagios/nrpe.cfg') }
+        it { is_expected.to contain_concat__fragment('nrpe main config') }
+        it { is_expected.to contain_concat__fragment('nrpe includedir') }
+        it { is_expected.to contain_file('nrpe_include_dir').with_ensure('directory') }
       end
 
       context 'when ssl is being used' do
