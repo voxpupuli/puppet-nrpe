@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe 'nrpe' do
@@ -30,6 +32,7 @@ describe 'nrpe' do
         it { is_expected.to compile.with_all_deps }
         it { is_expected.to have_nrpe__command_resource_count(2) }
       end
+
       context 'when plugins parameter is used' do
         let(:params) do
           {

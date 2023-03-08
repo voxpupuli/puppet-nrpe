@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper_acceptance'
 
 case fact('osfamily')
@@ -18,6 +20,7 @@ describe 'nrpe::command class' do
       describe file(nrpe_includedir) do
         it { is_expected.to be_a_directory }
       end
+
       describe command("ls #{nrpe_includedir}/*.cfg | wc -l") do
         its(:stdout) { is_expected.to match('5') }
       end
@@ -33,11 +36,12 @@ describe 'nrpe::command class' do
   end
 
   describe 'Scenario: check_dummy' do
-    include_examples 'the example', 'check_dummy.pp'
-
     before do
       apply_manifest("package { '#{nrpe_plugin_package}': ensure => present }", catch_failures: true)
     end
+
+    include_examples 'the example', 'check_dummy.pp'
+
     describe command("#{nrpe_plugindir}/check_nrpe -H 127.0.0.1 -c check_dummy") do
       its(:exit_status) { is_expected.to eq 0 }
       its(:stdout) { is_expected.to match('OK') }

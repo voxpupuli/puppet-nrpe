@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe 'nrpe::plugin' do
@@ -16,6 +18,7 @@ describe 'nrpe::plugin' do
       end
 
       it { is_expected.to compile.with_all_deps }
+
       case facts[:osfamily]
       when 'Debian'
         it { is_expected.to contain_file('/usr/lib/nagios/plugins/check_users').that_requires('Package[nagios-nrpe-server]') }
