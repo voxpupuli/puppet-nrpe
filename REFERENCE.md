@@ -402,7 +402,7 @@ Data type: `Stdlib::Absolutepath`
 
 Default value: `$nrpe::params::nrpe_config`
 
-##### `listen_queue_size`
+##### <a name="-nrpe--listen_queue_size">`listen_queue_size`
 
 Data type: `Integer[0]`
 
