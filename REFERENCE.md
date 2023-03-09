@@ -109,6 +109,7 @@ The following parameters are available in the `nrpe` class:
 * [`ssl_log_client_cert_details`](#-nrpe--ssl_log_client_cert_details)
 * [`manage_pid_dir`](#-nrpe--manage_pid_dir)
 * [`config`](#-nrpe--config)
+* [`listen_queue_size`](#-nrpe--listen_queue_size)
 * [`include_dir`](#-nrpe--include_dir)
 * [`provider`](#-nrpe--provider)
 * [`service_name`](#-nrpe--service_name)
@@ -385,7 +386,6 @@ Whether to log details of client SSL certificates.
 
 Default value: `false`
 
-<<<<<<< HEAD
 ##### <a name="-nrpe--manage_pid_dir"></a>`manage_pid_dir`
 
 Data type: `Boolean`
@@ -395,7 +395,13 @@ Whether to manage the directory where the PID file should exist.
 Default value: `false`
 
 ##### <a name="-nrpe--config"></a>`config`
-=======
+
+Data type: `Stdlib::Absolutepath`
+
+**Private** You should not need to override this parameter.
+
+Default value: `$nrpe::params::nrpe_config`
+
 ##### `listen_queue_size`
 
 Data type: `Integer[0]`
@@ -403,15 +409,6 @@ Data type: `Integer[0]`
 Listen queue size (backlog) for serving incoming connections. You may want to increase this value under high load.
 
 Default value: `16`
-
-##### `config`
->>>>>>> backup
-
-Data type: `Stdlib::Absolutepath`
-
-**Private** You should not need to override this parameter.
-
-Default value: `$nrpe::params::nrpe_config`
 
 ##### <a name="-nrpe--include_dir"></a>`include_dir`
 

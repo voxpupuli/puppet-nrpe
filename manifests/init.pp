@@ -99,6 +99,9 @@
 #   **Private** You should not need to override this parameter.
 # @param service_name
 #   **Private** You should not need to override this parameter.
+# @param listen_queue_size
+#   Size of queue for parallel jobs
+#
 class nrpe (
   Array[Variant[Stdlib::Fqdn,Stdlib::IP::Address]] $allowed_hosts       = ['127.0.0.1'],
   Stdlib::IP::Address                  $server_address                  = '0.0.0.0',
