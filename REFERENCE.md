@@ -20,10 +20,13 @@
 
 ### Defined types
 
-* [`nrpe::command`](#nrpe--command): Installs NRPE commands
-* [`nrpe::plugin`](#nrpe--plugin): Installs additional plugins for NRPE
+* [`nrpe::command`](#nrpecommand): Installs NRPE commands
+* [`nrpe::plugin`](#nrpeplugin): Installs additional plugins for NRPE
 
 ### Functions
+
+#### Public Functions
+
 
 #### Private Functions
 
@@ -31,8 +34,8 @@
 
 ### Data types
 
-* [`Nrpe::Sslversion`](#Nrpe--Sslversion)
-* [`Nrpe::Syslogfacility`](#Nrpe--Syslogfacility)
+* [`Nrpe::Sslversion`](#nrpesslversion)
+* [`Nrpe::Syslogfacility`](#nrpesyslogfacility)
 
 ## Classes
 
@@ -73,48 +76,48 @@ class { 'nrpe':
 
 The following parameters are available in the `nrpe` class:
 
-* [`allowed_hosts`](#-nrpe--allowed_hosts)
-* [`server_address`](#-nrpe--server_address)
-* [`commands`](#-nrpe--commands)
-* [`plugins`](#-nrpe--plugins)
-* [`command_timeout`](#-nrpe--command_timeout)
-* [`package_name`](#-nrpe--package_name)
-* [`manage_package`](#-nrpe--manage_package)
-* [`purge`](#-nrpe--purge)
-* [`dont_blame_nrpe`](#-nrpe--dont_blame_nrpe)
-* [`log_facility`](#-nrpe--log_facility)
-* [`server_port`](#-nrpe--server_port)
-* [`command_prefix`](#-nrpe--command_prefix)
-* [`debug`](#-nrpe--debug)
-* [`connection_timeout`](#-nrpe--connection_timeout)
-* [`allow_weak_random_seed`](#-nrpe--allow_weak_random_seed)
-* [`allow_bash_command_substitution`](#-nrpe--allow_bash_command_substitution)
-* [`nrpe_user`](#-nrpe--nrpe_user)
-* [`nrpe_group`](#-nrpe--nrpe_group)
-* [`nrpe_pid_file`](#-nrpe--nrpe_pid_file)
-* [`command_file_default_mode`](#-nrpe--command_file_default_mode)
-* [`supplementary_groups`](#-nrpe--supplementary_groups)
-* [`nrpe_ssl_dir`](#-nrpe--nrpe_ssl_dir)
-* [`ssl_cert_file_content`](#-nrpe--ssl_cert_file_content)
-* [`ssl_privatekey_file_content`](#-nrpe--ssl_privatekey_file_content)
-* [`ssl_cacert_file_content`](#-nrpe--ssl_cacert_file_content)
-* [`ssl_version`](#-nrpe--ssl_version)
-* [`ssl_ciphers`](#-nrpe--ssl_ciphers)
-* [`ssl_client_certs`](#-nrpe--ssl_client_certs)
-* [`ssl_log_startup_params`](#-nrpe--ssl_log_startup_params)
-* [`ssl_log_remote_ip`](#-nrpe--ssl_log_remote_ip)
-* [`ssl_log_protocol_version`](#-nrpe--ssl_log_protocol_version)
-* [`ssl_log_cipher`](#-nrpe--ssl_log_cipher)
-* [`ssl_log_client_cert`](#-nrpe--ssl_log_client_cert)
-* [`ssl_log_client_cert_details`](#-nrpe--ssl_log_client_cert_details)
-* [`manage_pid_dir`](#-nrpe--manage_pid_dir)
-* [`config`](#-nrpe--config)
-* [`listen_queue_size`](#-nrpe--listen_queue_size)
-* [`include_dir`](#-nrpe--include_dir)
-* [`provider`](#-nrpe--provider)
-* [`service_name`](#-nrpe--service_name)
+* [`allowed_hosts`](#allowed_hosts)
+* [`server_address`](#server_address)
+* [`commands`](#commands)
+* [`plugins`](#plugins)
+* [`command_timeout`](#command_timeout)
+* [`package_name`](#package_name)
+* [`manage_package`](#manage_package)
+* [`purge`](#purge)
+* [`dont_blame_nrpe`](#dont_blame_nrpe)
+* [`log_facility`](#log_facility)
+* [`server_port`](#server_port)
+* [`command_prefix`](#command_prefix)
+* [`debug`](#debug)
+* [`connection_timeout`](#connection_timeout)
+* [`allow_weak_random_seed`](#allow_weak_random_seed)
+* [`allow_bash_command_substitution`](#allow_bash_command_substitution)
+* [`nrpe_user`](#nrpe_user)
+* [`nrpe_group`](#nrpe_group)
+* [`nrpe_pid_file`](#nrpe_pid_file)
+* [`command_file_default_mode`](#command_file_default_mode)
+* [`supplementary_groups`](#supplementary_groups)
+* [`nrpe_ssl_dir`](#nrpe_ssl_dir)
+* [`ssl_cert_file_content`](#ssl_cert_file_content)
+* [`ssl_privatekey_file_content`](#ssl_privatekey_file_content)
+* [`ssl_cacert_file_content`](#ssl_cacert_file_content)
+* [`ssl_version`](#ssl_version)
+* [`ssl_ciphers`](#ssl_ciphers)
+* [`ssl_client_certs`](#ssl_client_certs)
+* [`ssl_log_startup_params`](#ssl_log_startup_params)
+* [`ssl_log_remote_ip`](#ssl_log_remote_ip)
+* [`ssl_log_protocol_version`](#ssl_log_protocol_version)
+* [`ssl_log_cipher`](#ssl_log_cipher)
+* [`ssl_log_client_cert`](#ssl_log_client_cert)
+* [`ssl_log_client_cert_details`](#ssl_log_client_cert_details)
+* [`manage_pid_dir`](#manage_pid_dir)
+* [`config`](#config)
+* [`include_dir`](#include_dir)
+* [`provider`](#provider)
+* [`service_name`](#service_name)
+* [`listen_queue_size`](#listen_queue_size)
 
-##### <a name="-nrpe--allowed_hosts"></a>`allowed_hosts`
+##### <a name="allowed_hosts"></a>`allowed_hosts`
 
 Data type: `Array[Variant[Stdlib::Fqdn,Stdlib::IP::Address]]`
 
@@ -122,7 +125,7 @@ Specifies the hosts that NRPE will accept connections from.
 
 Default value: `['127.0.0.1']`
 
-##### <a name="-nrpe--server_address"></a>`server_address`
+##### <a name="server_address"></a>`server_address`
 
 Data type: `Stdlib::IP::Address`
 
@@ -130,7 +133,7 @@ Specifies the IP address of the inteface that NRPE should bind to. Useful when t
 
 Default value: `'0.0.0.0'`
 
-##### <a name="-nrpe--commands"></a>`commands`
+##### <a name="commands"></a>`commands`
 
 Data type: `Hash`
 
@@ -138,7 +141,7 @@ A Hash of `nrpe::command` resources you want to create.  Recommended when you wa
 
 Default value: `{}`
 
-##### <a name="-nrpe--plugins"></a>`plugins`
+##### <a name="plugins"></a>`plugins`
 
 Data type: `Hash`
 
@@ -146,7 +149,7 @@ A Hash of `nrpe::plugin` resources you want to create.  Recommended when you wan
 
 Default value: `{}`
 
-##### <a name="-nrpe--command_timeout"></a>`command_timeout`
+##### <a name="command_timeout"></a>`command_timeout`
 
 Data type: `Integer[0]`
 
@@ -154,7 +157,7 @@ Specifies the maximum number of seconds that the NRPE daemon will allow plugins 
 
 Default value: `60`
 
-##### <a name="-nrpe--package_name"></a>`package_name`
+##### <a name="package_name"></a>`package_name`
 
 Data type: `Variant[String[1], Array[String[1]]]`
 
@@ -162,23 +165,23 @@ The package name or array of package names that will be installed. The default i
 
 Default value: `$nrpe::params::nrpe_packages`
 
-##### <a name="-nrpe--manage_package"></a>`manage_package`
+##### <a name="manage_package"></a>`manage_package`
 
 Data type: `Boolean`
 
 By default, set to `true` and the `nrpe` class will manage the OS package(s).
 
-Default value: `true`
+Default value: ``true``
 
-##### <a name="-nrpe--purge"></a>`purge`
+##### <a name="purge"></a>`purge`
 
 Data type: `Boolean`
 
 When set to true, the module will purge any unmanaged commands from the NRPE includedir.
 
-Default value: `false`
+Default value: ``false``
 
-##### <a name="-nrpe--dont_blame_nrpe"></a>`dont_blame_nrpe`
+##### <a name="dont_blame_nrpe"></a>`dont_blame_nrpe`
 
 Data type: `Boolean`
 
@@ -186,7 +189,7 @@ Determines whether or not the NRPE daemon will allow clients to specify argument
 
 Default value: `$nrpe::params::dont_blame_nrpe`
 
-##### <a name="-nrpe--log_facility"></a>`log_facility`
+##### <a name="log_facility"></a>`log_facility`
 
 Data type: `Nrpe::Syslogfacility`
 
@@ -194,7 +197,7 @@ The syslog facility that should be used for logging purposes.
 
 Default value: `$nrpe::params::log_facility`
 
-##### <a name="-nrpe--server_port"></a>`server_port`
+##### <a name="server_port"></a>`server_port`
 
 Data type: `Stdlib::Port::Unprivileged`
 
@@ -202,7 +205,7 @@ The port that NRPE should listen for connections on.
 
 Default value: `$nrpe::params::server_port`
 
-##### <a name="-nrpe--command_prefix"></a>`command_prefix`
+##### <a name="command_prefix"></a>`command_prefix`
 
 Data type: `Optional[Stdlib::Absolutepath]`
 
@@ -210,7 +213,7 @@ This option allows you to prefix all commands with a user-defined string.  Altho
 
 Default value: `$nrpe::params::command_prefix`
 
-##### <a name="-nrpe--debug"></a>`debug`
+##### <a name="debug"></a>`debug`
 
 Data type: `Boolean`
 
@@ -218,7 +221,7 @@ This option determines whether or not debugging messages are logged to the syslo
 
 Default value: `$nrpe::params::debug`
 
-##### <a name="-nrpe--connection_timeout"></a>`connection_timeout`
+##### <a name="connection_timeout"></a>`connection_timeout`
 
 Data type: `Integer[0]`
 
@@ -226,7 +229,7 @@ Specifies the maximum number of seconds that the NRPE daemon will wait for a con
 
 Default value: `$nrpe::params::connection_timeout`
 
-##### <a name="-nrpe--allow_weak_random_seed"></a>`allow_weak_random_seed`
+##### <a name="allow_weak_random_seed"></a>`allow_weak_random_seed`
 
 Data type: `Boolean`
 
@@ -234,7 +237,7 @@ Determines whether or not the NRPE daemon will use weak sources of randomness
 
 Default value: `$nrpe::params::allow_weak_random_seed`
 
-##### <a name="-nrpe--allow_bash_command_substitution"></a>`allow_bash_command_substitution`
+##### <a name="allow_bash_command_substitution"></a>`allow_bash_command_substitution`
 
 Data type: `Optional[Boolean]`
 
@@ -242,7 +245,7 @@ Determines whether or not the NRPE daemon will allow clients to specify argument
 
 Default value: `$nrpe::params::allow_bash_command_substitution`
 
-##### <a name="-nrpe--nrpe_user"></a>`nrpe_user`
+##### <a name="nrpe_user"></a>`nrpe_user`
 
 Data type: `String[1]`
 
@@ -250,7 +253,7 @@ Determines the effective user that the NRPE daemon should run as.
 
 Default value: `$nrpe::params::nrpe_user`
 
-##### <a name="-nrpe--nrpe_group"></a>`nrpe_group`
+##### <a name="nrpe_group"></a>`nrpe_group`
 
 Data type: `String[1]`
 
@@ -258,7 +261,7 @@ Determines the effective group that the NRPE daemon should run as.
 
 Default value: `$nrpe::params::nrpe_group`
 
-##### <a name="-nrpe--nrpe_pid_file"></a>`nrpe_pid_file`
+##### <a name="nrpe_pid_file"></a>`nrpe_pid_file`
 
 Data type: `Stdlib::Absolutepath`
 
@@ -266,7 +269,7 @@ The name of the file in which the NRPE daemon should write it's process ID numbe
 
 Default value: `$nrpe::params::nrpe_pid_file`
 
-##### <a name="-nrpe--command_file_default_mode"></a>`command_file_default_mode`
+##### <a name="command_file_default_mode"></a>`command_file_default_mode`
 
 Data type: `Stdlib::Filemode`
 
@@ -274,7 +277,7 @@ The default file mode to use when creating NRPE command files in the includedir.
 
 Default value: `'0644'`
 
-##### <a name="-nrpe--supplementary_groups"></a>`supplementary_groups`
+##### <a name="supplementary_groups"></a>`supplementary_groups`
 
 Data type: `Array[String[1]]`
 
@@ -282,7 +285,7 @@ If set, the `nrpe_user` will be added to these supplementary groups.
 
 Default value: `[]`
 
-##### <a name="-nrpe--nrpe_ssl_dir"></a>`nrpe_ssl_dir`
+##### <a name="nrpe_ssl_dir"></a>`nrpe_ssl_dir`
 
 Data type: `Stdlib::Absolutepath`
 
@@ -290,31 +293,31 @@ The directory that SSL certificates and keys will be created in.
 
 Default value: `$nrpe::params::nrpe_ssl_dir`
 
-##### <a name="-nrpe--ssl_cert_file_content"></a>`ssl_cert_file_content`
+##### <a name="ssl_cert_file_content"></a>`ssl_cert_file_content`
 
 Data type: `Optional[String[1]]`
 
 A string containing the SSL Certificate.
 
-Default value: `undef`
+Default value: ``undef``
 
-##### <a name="-nrpe--ssl_privatekey_file_content"></a>`ssl_privatekey_file_content`
+##### <a name="ssl_privatekey_file_content"></a>`ssl_privatekey_file_content`
 
 Data type: `Optional[String[1]]`
 
 A string containing the SSL private **KEY**.  It is recommended to source this parameter from hiera and use EYAML or similar to encrypt the data.
 
-Default value: `undef`
+Default value: ``undef``
 
-##### <a name="-nrpe--ssl_cacert_file_content"></a>`ssl_cacert_file_content`
+##### <a name="ssl_cacert_file_content"></a>`ssl_cacert_file_content`
 
 Data type: `Optional[String[1]]`
 
 A string containing the SSL CA Cert file contents.
 
-Default value: `undef`
+Default value: ``undef``
 
-##### <a name="-nrpe--ssl_version"></a>`ssl_version`
+##### <a name="ssl_version"></a>`ssl_version`
 
 Data type: `Nrpe::Sslversion`
 
@@ -322,7 +325,7 @@ The SSL Version to use.  The default of `TLSv1.2+` is the most secure option ava
 
 Default value: `$nrpe::params::ssl_version`
 
-##### <a name="-nrpe--ssl_ciphers"></a>`ssl_ciphers`
+##### <a name="ssl_ciphers"></a>`ssl_ciphers`
 
 Data type: `Array[String[1]]`
 
@@ -330,7 +333,7 @@ An array of ciphers that should be allowed by NRPE.  The defaults are for RSA ke
 
 Default value: `$nrpe::params::ssl_ciphers`
 
-##### <a name="-nrpe--ssl_client_certs"></a>`ssl_client_certs`
+##### <a name="ssl_client_certs"></a>`ssl_client_certs`
 
 Data type: `Enum['no','ask','require']`
 
@@ -338,63 +341,63 @@ This options determines client certificate usage.
 
 Default value: `$nrpe::params::ssl_client_certs`
 
-##### <a name="-nrpe--ssl_log_startup_params"></a>`ssl_log_startup_params`
+##### <a name="ssl_log_startup_params"></a>`ssl_log_startup_params`
 
 Data type: `Boolean`
 
 Whether to log startup SSL/TLS parameters.
 
-Default value: `false`
+Default value: ``false``
 
-##### <a name="-nrpe--ssl_log_remote_ip"></a>`ssl_log_remote_ip`
+##### <a name="ssl_log_remote_ip"></a>`ssl_log_remote_ip`
 
 Data type: `Boolean`
 
 Whether to log remote IP address of SSL client.
 
-Default value: `false`
+Default value: ``false``
 
-##### <a name="-nrpe--ssl_log_protocol_version"></a>`ssl_log_protocol_version`
+##### <a name="ssl_log_protocol_version"></a>`ssl_log_protocol_version`
 
 Data type: `Boolean`
 
 Whether to log SSL/TLS version of connections.
 
-Default value: `false`
+Default value: ``false``
 
-##### <a name="-nrpe--ssl_log_cipher"></a>`ssl_log_cipher`
+##### <a name="ssl_log_cipher"></a>`ssl_log_cipher`
 
 Data type: `Boolean`
 
 Whether to log which encryption cipher is being used for SSL connections.
 
-Default value: `false`
+Default value: ``false``
 
-##### <a name="-nrpe--ssl_log_client_cert"></a>`ssl_log_client_cert`
+##### <a name="ssl_log_client_cert"></a>`ssl_log_client_cert`
 
 Data type: `Boolean`
 
 Whether to log if an SSL client has presented a certificate.
 
-Default value: `false`
+Default value: ``false``
 
-##### <a name="-nrpe--ssl_log_client_cert_details"></a>`ssl_log_client_cert_details`
+##### <a name="ssl_log_client_cert_details"></a>`ssl_log_client_cert_details`
 
 Data type: `Boolean`
 
 Whether to log details of client SSL certificates.
 
-Default value: `false`
+Default value: ``false``
 
-##### <a name="-nrpe--manage_pid_dir"></a>`manage_pid_dir`
+##### <a name="manage_pid_dir"></a>`manage_pid_dir`
 
 Data type: `Boolean`
 
 Whether to manage the directory where the PID file should exist.
 
-Default value: `false`
+Default value: ``false``
 
-##### <a name="-nrpe--config"></a>`config`
+##### <a name="config"></a>`config`
 
 Data type: `Stdlib::Absolutepath`
 
@@ -402,15 +405,7 @@ Data type: `Stdlib::Absolutepath`
 
 Default value: `$nrpe::params::nrpe_config`
 
-##### <a name="-nrpe--listen_queue_size">`listen_queue_size`
-
-Data type: `Integer[0]`
-
-Listen queue size (backlog) for serving incoming connections. You may want to increase this value under high load.
-
-Default value: `16`
-
-##### <a name="-nrpe--include_dir"></a>`include_dir`
+##### <a name="include_dir"></a>`include_dir`
 
 Data type: `Stdlib::Absolutepath`
 
@@ -418,7 +413,7 @@ Data type: `Stdlib::Absolutepath`
 
 Default value: `$nrpe::params::nrpe_include_dir`
 
-##### <a name="-nrpe--provider"></a>`provider`
+##### <a name="provider"></a>`provider`
 
 Data type: `Optional[String[1]]`
 
@@ -426,7 +421,7 @@ Data type: `Optional[String[1]]`
 
 Default value: `$nrpe::params::nrpe_provider`
 
-##### <a name="-nrpe--service_name"></a>`service_name`
+##### <a name="service_name"></a>`service_name`
 
 Data type: `String[1]`
 
@@ -434,9 +429,17 @@ Data type: `String[1]`
 
 Default value: `$nrpe::params::nrpe_service`
 
+##### <a name="listen_queue_size"></a>`listen_queue_size`
+
+Data type: `Integer[0]`
+
+Size of queue for parallel jobs
+
+Default value: `$nrpe::params::listen_queue_size`
+
 ## Defined types
 
-### <a name="nrpe--command"></a>`nrpe::command`
+### <a name="nrpecommand"></a>`nrpe::command`
 
 Installs NRPE commands
 
@@ -455,24 +458,24 @@ nrpe::command { 'check_users':
 
 The following parameters are available in the `nrpe::command` defined type:
 
-* [`name`](#-nrpe--command--name)
-* [`command`](#-nrpe--command--command)
-* [`ensure`](#-nrpe--command--ensure)
-* [`file_mode`](#-nrpe--command--file_mode)
-* [`sudo`](#-nrpe--command--sudo)
-* [`sudo_user`](#-nrpe--command--sudo_user)
+* [`name`](#name)
+* [`command`](#command)
+* [`ensure`](#ensure)
+* [`file_mode`](#file_mode)
+* [`sudo`](#sudo)
+* [`sudo_user`](#sudo_user)
 
-##### <a name="-nrpe--command--name"></a>`name`
+##### <a name="name"></a>`name`
 
 The name of the command.
 
-##### <a name="-nrpe--command--command"></a>`command`
+##### <a name="command"></a>`command`
 
 Data type: `String[1]`
 
 The command plugin to run and its arguments.
 
-##### <a name="-nrpe--command--ensure"></a>`ensure`
+##### <a name="ensure"></a>`ensure`
 
 Data type: `Enum['present', 'absent']`
 
@@ -480,23 +483,23 @@ Whether to install or remove the command.
 
 Default value: `present`
 
-##### <a name="-nrpe--command--file_mode"></a>`file_mode`
+##### <a name="file_mode"></a>`file_mode`
 
 Data type: `Optional[Stdlib::Filemode]`
 
 The mode to use for the command file.  By default, this parameter is `undef`, and the command file will use `$nrpe::command_file_default_mode`.
 
-Default value: `undef`
+Default value: ``undef``
 
-##### <a name="-nrpe--command--sudo"></a>`sudo`
+##### <a name="sudo"></a>`sudo`
 
 Data type: `Boolean`
 
 Whether the command should use sudo.
 
-Default value: `false`
+Default value: ``false``
 
-##### <a name="-nrpe--command--sudo_user"></a>`sudo_user`
+##### <a name="sudo_user"></a>`sudo_user`
 
 Data type: `String[1]`
 
@@ -504,7 +507,7 @@ The user to run the command as when using sudo.
 
 Default value: `'root'`
 
-### <a name="nrpe--plugin"></a>`nrpe::plugin`
+### <a name="nrpeplugin"></a>`nrpe::plugin`
 
 Installs additional plugins for NRPE
 
@@ -523,16 +526,16 @@ nrpe::plugin { 'check_mem':
 
 The following parameters are available in the `nrpe::plugin` defined type:
 
-* [`name`](#-nrpe--plugin--name)
-* [`ensure`](#-nrpe--plugin--ensure)
-* [`content`](#-nrpe--plugin--content)
-* [`source`](#-nrpe--plugin--source)
+* [`name`](#name)
+* [`ensure`](#ensure)
+* [`content`](#content)
+* [`source`](#source)
 
-##### <a name="-nrpe--plugin--name"></a>`name`
+##### <a name="name"></a>`name`
 
 The name of the plugin.
 
-##### <a name="-nrpe--plugin--ensure"></a>`ensure`
+##### <a name="ensure"></a>`ensure`
 
 Data type: `Enum['present', 'absent']`
 
@@ -540,33 +543,43 @@ Whether to install or remove the plugin.
 
 Default value: `present`
 
-##### <a name="-nrpe--plugin--content"></a>`content`
+##### <a name="content"></a>`content`
 
 Data type: `Optional[String[1]]`
 
 Defines the actual content of the plugin file.  Should not be used in conjunction with `source`.
 
-Default value: `undef`
+Default value: ``undef``
 
-##### <a name="-nrpe--plugin--source"></a>`source`
+##### <a name="source"></a>`source`
 
 Data type: `Optional[Stdlib::Filesource]`
 
 Defines the source of the plugin file. Should not be used in conjunction with `content`.
 
-Default value: `undef`
+Default value: ``undef``
+
+## Functions
 
 ## Data types
 
-### <a name="Nrpe--Sslversion"></a>`Nrpe::Sslversion`
+### <a name="nrpesslversion"></a>`Nrpe::Sslversion`
 
 The Nrpe::Sslversion data type.
 
-Alias of `Enum['SSLv2', 'SSLv2+', 'SSLv3', 'SSLv3+', 'TLSv1', 'TLSv1+', 'TLSv1.1', 'TLSv1.1+', 'TLSv1.2', 'TLSv1.2+']`
+Alias of
 
-### <a name="Nrpe--Syslogfacility"></a>`Nrpe::Syslogfacility`
+```puppet
+Enum['SSLv2', 'SSLv2+', 'SSLv3', 'SSLv3+', 'TLSv1', 'TLSv1+', 'TLSv1.1', 'TLSv1.1+', 'TLSv1.2', 'TLSv1.2+']
+```
+
+### <a name="nrpesyslogfacility"></a>`Nrpe::Syslogfacility`
 
 The Nrpe::Syslogfacility data type.
 
-Alias of `Enum['user', 'mail', 'daemon', 'auth', 'syslog', 'lpr', 'news', 'uucp', 'cron', 'authpriv', 'ftp', 'ntp', 'security', 'console', 'solaris-cron', 'local0', 'local1', 'local2', 'local3', 'local4', 'local5', 'local6', 'local7']`
+Alias of
+
+```puppet
+Enum['user', 'mail', 'daemon', 'auth', 'syslog', 'lpr', 'news', 'uucp', 'cron', 'authpriv', 'ftp', 'ntp', 'security', 'console', 'solaris-cron', 'local0', 'local1', 'local2', 'local3', 'local4', 'local5', 'local6', 'local7']
+```
 
