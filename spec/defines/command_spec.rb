@@ -32,6 +32,12 @@ describe 'nrpe::command' do
             'mode' => '0644'
           ).that_requires(['Package[net-analyzer/nrpe]'])
         }
+      when 'FreeBSD'
+        it {
+          is_expected.to contain_file('/usr/local/etc/nrpe.d/check_users.cfg').with(
+            'mode' => '0644'
+          ).that_requires(['Package[nrpe3]'])
+        }
       else
         it {
           is_expected.to contain_file('/etc/nrpe.d/check_users.cfg').with(
