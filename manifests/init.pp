@@ -100,7 +100,7 @@
 # @param service_name
 #   **Private** You should not need to override this parameter.
 # @param listen_queue_size
-#   Size of queue for parallel jobs
+#   Listen queue size (backlog) for serving incoming connections. You may want to increase this value under high load.
 #
 class nrpe (
   Array[Variant[Stdlib::Fqdn,Stdlib::IP::Address]] $allowed_hosts       = ['127.0.0.1'],

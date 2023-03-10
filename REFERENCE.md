@@ -433,7 +433,7 @@ Default value: `$nrpe::params::nrpe_service`
 
 Data type: `Integer[0]`
 
-Size of queue for parallel jobs
+Listen queue size (backlog) for serving incoming connections. You may want to increase this value under high load.
 
 Default value: `$nrpe::params::listen_queue_size`
 
