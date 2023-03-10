@@ -64,14 +64,14 @@ class nrpe::params {
       $libdir           = '/usr/local/libexec/nagios'
       $nrpe_user        = 'nagios'
       $nrpe_group       = 'nagios'
-      $nrpe_pid_file    = '/var/run/nrpe2/nrpe2.pid'
+      $nrpe_pid_file    = '/var/run/nrpe3/nrpe3.pid'
       $nrpe_config      = '/usr/local/etc/nrpe.cfg'
       $nrpe_ssl_dir     = '/usr/local/etc/nrpe-ssl'
       $nrpe_include_dir = '/usr/local/etc/nrpe.d'
-      $nrpe_service     = 'nrpe2'
+      $nrpe_service     = 'nrpe3'
       $nrpe_packages    = [
-        'net-mgmt/nrpe',
-        'net-mgmt/nagios-plugins',
+        'nrpe3',
+        'nagios-plugins',
       ]
     }
     'OpenBSD': {
@@ -145,6 +145,7 @@ class nrpe::params {
   $debug                           = false
   $connection_timeout              = 300
   $allow_weak_random_seed          = true
+  $listen_queue_size               = 16
 
   $ssl_version                 = 'TLSv1.2+'
   $ssl_ciphers                 = [

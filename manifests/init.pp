@@ -99,6 +99,9 @@
 #   **Private** You should not need to override this parameter.
 # @param service_name
 #   **Private** You should not need to override this parameter.
+# @param listen_queue_size
+#   Listen queue size (backlog) for serving incoming connections. You may want to increase this value under high load.
+#
 class nrpe (
   Array[Variant[Stdlib::Fqdn,Stdlib::IP::Address]] $allowed_hosts       = ['127.0.0.1'],
   Stdlib::IP::Address                  $server_address                  = '0.0.0.0',
@@ -135,6 +138,7 @@ class nrpe (
   Stdlib::Filemode                     $command_file_default_mode       = '0644',
   Array[String[1]]                     $supplementary_groups            = [],
   Boolean                              $manage_pid_dir                  = false,
+  Integer[0]                           $listen_queue_size               = $nrpe::params::listen_queue_size,
 
   # Private parameters.  You shouldn't need to override these.
   Stdlib::Absolutepath                 $config                          = $nrpe::params::nrpe_config,

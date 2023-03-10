@@ -112,6 +112,7 @@ The following parameters are available in the `nrpe` class:
 * [`include_dir`](#-nrpe--include_dir)
 * [`provider`](#-nrpe--provider)
 * [`service_name`](#-nrpe--service_name)
+* [`listen_queue_size`](#-nrpe--listen_queue_size)
 
 ##### <a name="-nrpe--allowed_hosts"></a>`allowed_hosts`
 
@@ -424,6 +425,14 @@ Data type: `String[1]`
 **Private** You should not need to override this parameter.
 
 Default value: `$nrpe::params::nrpe_service`
+
+##### <a name="-nrpe--listen_queue_size"></a>`listen_queue_size`
+
+Data type: `Integer[0]`
+
+Listen queue size (backlog) for serving incoming connections. You may want to increase this value under high load.
+
+Default value: `$nrpe::params::listen_queue_size`
 
 ## Defined types
 

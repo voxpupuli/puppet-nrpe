@@ -15,6 +15,8 @@ describe 'nrpe::service' do
         service_name = case facts[:osfamily]
                        when 'Debian'
                          'nagios-nrpe-server'
+                       when 'FreeBSD'
+                         'nrpe3'
                        else
                          'nrpe'
                        end
