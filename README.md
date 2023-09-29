@@ -104,6 +104,10 @@ This module has been documented with [puppet-strings](https://github.com/puppetl
  * This module requires the EPEL repositories to be enabled
  * This module currently does not manage the firewall rules
 
+### Oracle Linux
+
+* This module requires the EPEL and Optional Updates repositories to be enabled
+
 ### Solaris
 
  * This module depends on OpenCSW packages
