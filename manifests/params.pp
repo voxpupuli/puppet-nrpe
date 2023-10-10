@@ -28,6 +28,8 @@ class nrpe::params {
         'nagios-nrpe-server',
         'monitoring-plugins',
       ]
+      $user_home_dir    = '/var/lib/nagios'
+      $user_shell       = '/bin/false'
     }
     'Solaris': {
       $libdir           = '/opt/csw/libexec/nagios-plugins'
@@ -42,6 +44,8 @@ class nrpe::params {
         'nrpe',
         'nagios_plugins',
       ]
+      $user_home_dir    = '/var/lib/nagios'
+      $user_shell       = '/bin/false'
     }
     'RedHat':  {
       $libdir           = fact('os.architecture') ? {
@@ -59,6 +63,8 @@ class nrpe::params {
         'nrpe',
         'nagios-plugins-all',
       ]
+      $user_home_dir    = '/var/run/nrpe'
+      $user_shell       = '/sbin/nologin'
     }
     'FreeBSD': {
       $libdir           = '/usr/local/libexec/nagios'
@@ -73,6 +79,8 @@ class nrpe::params {
         'nrpe3',
         'nagios-plugins',
       ]
+      $user_home_dir    = '/var/spool/nagios'
+      $user_shell       = '/sbin/nologin'
     }
     'OpenBSD': {
       $libdir           = '/usr/local/libexec/nagios'
@@ -87,6 +95,8 @@ class nrpe::params {
         'nrpe',
         'monitoring-plugins',
       ]
+      $user_home_dir    = '/var/lib/nagios'
+      $user_shell       = '/bin/false'
     }
     'Suse':  {
       $libdir           = '/usr/lib/nagios/plugins'
@@ -115,6 +125,8 @@ class nrpe::params {
           ]
         }
       }
+      $user_home_dir    = '/var/lib/nagios'
+      $user_shell       = '/bin/false'
     }
     'Gentoo':  {
       $libdir           = fact('os.architecture') ? {
@@ -132,6 +144,8 @@ class nrpe::params {
         'net-analyzer/nrpe',
         'net-analyzer/nagios-plugins',
       ]
+      $user_home_dir    = '/dev/null'
+      $user_shell       = '/sbin/nologin'
     }
     default:   {
     }

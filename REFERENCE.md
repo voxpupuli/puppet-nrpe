@@ -108,6 +108,11 @@ The following parameters are available in the `nrpe` class:
 * [`ssl_log_client_cert`](#-nrpe--ssl_log_client_cert)
 * [`ssl_log_client_cert_details`](#-nrpe--ssl_log_client_cert_details)
 * [`manage_pid_dir`](#-nrpe--manage_pid_dir)
+* [`manage_group`](#-nrpe--manage_group)
+* [`manage_user`](#-nrpe--manage_user)
+* [`user_comment`](#-nrpe--user_comment)
+* [`user_home_dir`](#-nrpe--user_home_dir)
+* [`user_shell`](#-nrpe--user_shell)
 * [`config`](#-nrpe--config)
 * [`include_dir`](#-nrpe--include_dir)
 * [`provider`](#-nrpe--provider)
@@ -393,6 +398,46 @@ Data type: `Boolean`
 Whether to manage the directory where the PID file should exist.
 
 Default value: `false`
+
+##### <a name="-nrpe--manage_group"></a>`manage_group`
+
+Data type: `Boolean`
+
+Whether to manage the group nrpe uses.
+
+Default value: `false`
+
+##### <a name="-nrpe--manage_user"></a>`manage_user`
+
+Data type: `Boolean`
+
+Whether to manage the user nrpe uses.
+
+Default value: `false`
+
+##### <a name="-nrpe--user_comment"></a>`user_comment`
+
+Data type: `Optional[String]`
+
+An optional string to use for the user's GECOS field.
+
+Default value: `undef`
+
+##### <a name="-nrpe--user_home_dir"></a>`user_home_dir`
+
+Data type: `Stdlib::Absolutepath`
+
+The absolute path to the home directory to use for the user.
+
+Default value: `$nrpe::params::user_home_dir`
+
+##### <a name="-nrpe--user_shell"></a>`user_shell`
+
+Data type: `Stdlib::Absolutepath`
+
+The absolute path to the shell to use for the user.
+
+Default value: `$nrpe::params::user_shell`
 
 ##### <a name="-nrpe--config"></a>`config`
 
