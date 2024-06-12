@@ -67,6 +67,18 @@ class nrpe::params {
       $user_shell       = '/sbin/nologin'
     }
     'FreeBSD': {
+      if versioncmp($facts['kernelversion'], '13.1') <= 0 {
+        $nrpe_packages  = ['nrpe3', 'nagios-plugins']
+        $nrpe_service   = 'nrpe3'
+      }
+      elsif versioncmp($facts['kernelversion'], '12.3') <= 0 {
+        $nrpe_packages  = ['nrpe3', 'nagios-plugins']
+        $nrpe_service   = 'nrpe3'
+      }
+      else {
+        $nrpe_packages  = ['nrpe', 'nagios-plugins']
+        $nrpe_service   = 'nrpe'
+      }
       $libdir           = '/usr/local/libexec/nagios'
       $nrpe_user        = 'nagios'
       $nrpe_group       = 'nagios'
@@ -74,11 +86,6 @@ class nrpe::params {
       $nrpe_config      = '/usr/local/etc/nrpe.cfg'
       $nrpe_ssl_dir     = '/usr/local/etc/nrpe-ssl'
       $nrpe_include_dir = '/usr/local/etc/nrpe.d'
-      $nrpe_service     = 'nrpe3'
-      $nrpe_packages    = [
-        'nrpe3',
-        'nagios-plugins',
-      ]
       $user_home_dir    = '/var/spool/nagios'
       $user_shell       = '/sbin/nologin'
     }
