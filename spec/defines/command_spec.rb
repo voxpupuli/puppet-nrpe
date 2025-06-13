@@ -19,7 +19,7 @@ describe 'nrpe::command' do
 
       it { is_expected.to compile.with_all_deps }
 
-      case facts[:osfamily]
+      case facts[:os]['family']
       when 'Debian'
         it {
           is_expected.to contain_file('/etc/nagios/nrpe.d/check_users.cfg').with(

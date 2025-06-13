@@ -12,7 +12,7 @@ describe 'nrpe::config' do
       context 'by default' do
         let(:pre_condition) { 'include nrpe' }
 
-        case facts[:osfamily]
+        case facts[:os]['family']
         when 'FreeBSD'
           it { is_expected.to contain_concat('/usr/local/etc/nrpe.cfg') }
         else
@@ -43,7 +43,7 @@ describe 'nrpe::config' do
            }'
         end
 
-        case facts[:osfamily]
+        case facts[:os]['family']
         when 'Debian', 'Gentoo', 'FreeBSD'
           it { is_expected.to contain_user('nagios').with_groups(%w[foo bar]) }
         else

@@ -20,7 +20,7 @@ describe 'nrpe::config::ssl' do
 
         it { is_expected.to contain_concat__fragment('nrpe ssl fragment') }
 
-        case facts[:osfamily]
+        case facts[:os]['family']
         when 'FreeBSD'
           it { is_expected.to contain_file('/usr/local/etc/nrpe-ssl').with_ensure('directory') }
           it { is_expected.to contain_file('/usr/local/etc/nrpe-ssl/ca-cert.pem').with_ensure('file').with_content('ca cert file content') }
