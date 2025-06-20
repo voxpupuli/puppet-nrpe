@@ -94,7 +94,7 @@ describe 'nrpe' do
       context 'when manage_group is true' do
         let(:params) { { 'manage_group' => true } }
 
-        case facts[:osfamily]
+        case facts[:os]['family']
         when 'OpenBSD'
           it { is_expected.to contain_group('_nrpe') }
         when 'RedHat'
@@ -107,7 +107,7 @@ describe 'nrpe' do
       context 'when manage_user is true' do
         let(:params) { { 'manage_user' => true } }
 
-        case facts[:osfamily]
+        case facts[:os]['family']
         when 'FreeBSD'
           it {
             is_expected.to contain_user('nagios').
@@ -155,7 +155,7 @@ describe 'nrpe' do
           }
         end
 
-        case facts[:osfamily]
+        case facts[:os]['family']
         when 'OpenBSD'
           it {
             is_expected.to contain_group('_nrpe')

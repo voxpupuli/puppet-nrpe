@@ -12,7 +12,7 @@ describe 'nrpe::install' do
       context 'by default' do
         let(:pre_condition) { 'include nrpe' }
 
-        case facts[:osfamily]
+        case facts[:os]['family']
         when 'Debian'
           it { is_expected.to contain_package('nagios-nrpe-server').with_ensure('installed') }
           it { is_expected.to contain_package('monitoring-plugins').with_ensure('installed') }
