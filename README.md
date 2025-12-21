@@ -1,7 +1,7 @@
 # NRPE Module for Puppet
 
 [![License](https://img.shields.io/github/license/voxpupuli/puppet-nrpe.svg)](https://github.com/voxpupuli/puppet-nrpe/blob/master/LICENSE)
-[![Build Status](https://travis-ci.org/voxpupuli/puppet-nrpe.png?branch=master)](https://travis-ci.org/voxpupuli/puppet-nrpe)
+![Build Status](https://github.com/voxpupuli/puppet-nrpe/actions/workflows/ci.yml/badge.svg?branch=master)
 [![Puppet Forge](https://img.shields.io/puppetforge/v/puppet/nrpe.svg)](https://forge.puppetlabs.com/puppet/nrpe)
 [![Puppet Forge - downloads](https://img.shields.io/puppetforge/dt/puppet/nrpe.svg)](https://forge.puppetlabs.com/puppet/nrpe)
 [![Puppet Forge - scores](https://img.shields.io/puppetforge/f/puppet/nrpe.svg)](https://forge.puppetlabs.com/puppet/nrpe)
