@@ -37,11 +37,6 @@ class nrpe::config {
     ensure => present,
   }
 
-  $_allow_bash_command_substitution = $nrpe::allow_bash_command_substitution ? {
-    undef   => undef,
-    default => bool2str($nrpe::allow_bash_command_substitution, '1', '0'),
-  }
-
   concat::fragment { 'nrpe main config':
     target  => $nrpe::config,
     content => epp(
@@ -55,7 +50,7 @@ class nrpe::config {
         'nrpe_group'                      => $nrpe::nrpe_group,
         'allowed_hosts'                   => $nrpe::allowed_hosts,
         'dont_blame_nrpe'                 => bool2str($nrpe::dont_blame_nrpe, '1', '0'),
-        'allow_bash_command_substitution' => $_allow_bash_command_substitution,
+        'allow_bash_command_substitution' => $nrpe::allow_bash_command_substitution,
         'libdir'                          => $nrpe::params::libdir,
         'command_prefix'                  => $nrpe::command_prefix,
         'debug'                           => bool2str($nrpe::debug, '1', '0'),
