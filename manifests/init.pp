@@ -73,6 +73,8 @@
 #   A string containing the SSL CA Cert file contents.
 # @param ssl_version
 #   The SSL Version to use.  The default of `TLSv1.2+` is the most secure option available at time of writing.  Avoid having to set it to a lower value if possible.
+# @param ssl_use_adh
+#   Use anonymous diffie-hellman key exchange. The default is `2` as required (1 means enabled)
 # @param ssl_ciphers
 #   An array of ciphers that should be allowed by NRPE.  The defaults are for RSA keys and were taken from https://github.com/ssllabs/research/wiki/SSL-and-TLS-Deployment-Best-Practices.
 # @param ssl_client_certs
@@ -137,6 +139,7 @@ class nrpe (
   Optional[String[1]]                  $ssl_privatekey_file_content     = undef,
   Optional[String[1]]                  $ssl_cacert_file_content         = undef,
   Nrpe::Sslversion                     $ssl_version                     = $nrpe::params::ssl_version,
+  Integer[0, 2]                        $ssl_use_adh                     = $nrpe::params::ssl_use_adh,
   Array[String[1]]                     $ssl_ciphers                     = $nrpe::params::ssl_ciphers,
   Enum['no','ask','require']           $ssl_client_certs                = $nrpe::params::ssl_client_certs,
   Boolean                              $ssl_log_startup_params          = false,
