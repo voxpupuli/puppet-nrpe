@@ -42,7 +42,6 @@ To purge unmanaged NRPE commands:
 class { 'nrpe':
   allowed_hosts => ['127.0.0.1'],
   purge         => true,
-  recurse       => true,
 }
 ```
 
