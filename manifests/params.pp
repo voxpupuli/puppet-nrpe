@@ -19,7 +19,7 @@ class nrpe::params {
       $libdir           = '/usr/lib/nagios/plugins'
       $nrpe_user        = 'nagios'
       $nrpe_group       = 'nagios'
-      $nrpe_pid_file    = '/var/run/nagios/nrpe.pid'
+      $nrpe_pid_file    = '/run/nagios/nrpe.pid'
       $nrpe_config      = '/etc/nagios/nrpe.cfg'
       $nrpe_ssl_dir     = '/etc/nagios/nrpe-ssl'
       $nrpe_include_dir = '/etc/nagios/nrpe.d'
