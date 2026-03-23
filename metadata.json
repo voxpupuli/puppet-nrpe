@@ -25,30 +25,21 @@
   ],
   "operatingsystem_support": [
     {
-      "operatingsystem": "RedHat",
+      "operatingsystem": "AlmaLinux",
       "operatingsystemrelease": [
-        "7"
+        "8",
+        "9",
+        "10"
       ]
     },
     {
       "operatingsystem": "CentOS",
       "operatingsystemrelease": [
-        "7"
+        "9",
+        "10"
       ]
     },
-    {
-      "operatingsystem": "OracleLinux",
-      "operatingsystemrelease": [
-        "7"
-      ]
-    },
-    {
-      "operatingsystem": "Scientific",
-      "operatingsystemrelease": [
-        "7"
-      ]
-    },
-    {
+        {
       "operatingsystem": "Debian",
       "operatingsystemrelease": [
         "11",
@@ -57,12 +48,11 @@
       ]
     },
     {
-      "operatingsystem": "Ubuntu",
+      "operatingsystem": "FreeBSD",
       "operatingsystemrelease": [
-        "18.04",
-        "20.04",
-        "22.04",
-        "24.04"
+        "12",
+        "13",
+        "14"
       ]
     },
     {
@@ -72,14 +62,48 @@
       ]
     },
     {
-      "operatingsystem": "FreeBSD",
+      "operatingsystem": "OracleLinux",
       "operatingsystemrelease": [
-        "12",
-        "13"
+        "7",
+        "8",
+        "9",
+        "10"
+      ]
+    },
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [
+        "7",
+        "8",
+        "9",
+        "10"
+      ]
+    },
+    {
+      "operatingsystem": "Rocky",
+      "operatingsystemrelease": [
+        "8",
+        "9",
+        "10"
+      ]
+    },
+    {
+      "operatingsystem": "Scientific",
+      "operatingsystemrelease": [
+        "7"
       ]
     },
     {
       "operatingsystem": "Solaris"
+    },
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [
+        "18.04",
+        "20.04",
+        "22.04",
+        "24.04"
+      ]
     }
   ]
 }
