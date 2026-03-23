@@ -25,19 +25,40 @@
   ],
   "operatingsystem_support": [
     {
-      "operatingsystem": "RedHat",
-      "operatingsystemrelease": [
-        "7"
-      ]
-    },
-    {
       "operatingsystem": "CentOS",
       "operatingsystemrelease": [
         "7"
       ]
     },
+        {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": [
+        "11",
+        "12",
+        "13"
+      ]
+    },
+    {
+      "operatingsystem": "FreeBSD",
+      "operatingsystemrelease": [
+        "12",
+        "13"
+      ]
+    },
+    {
+      "operatingsystem": "Gentoo",
+      "operatingsystemrelease": [
+        "4"
+      ]
+    },
     {
       "operatingsystem": "OracleLinux",
+      "operatingsystemrelease": [
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "RedHat",
       "operatingsystemrelease": [
         "7"
       ]
@@ -49,12 +70,7 @@
       ]
     },
     {
-      "operatingsystem": "Debian",
-      "operatingsystemrelease": [
-        "11",
-        "12",
-        "13"
-      ]
+      "operatingsystem": "Solaris"
     },
     {
       "operatingsystem": "Ubuntu",
@@ -64,22 +80,6 @@
         "22.04",
         "24.04"
       ]
-    },
-    {
-      "operatingsystem": "Gentoo",
-      "operatingsystemrelease": [
-        "4"
-      ]
-    },
-    {
-      "operatingsystem": "FreeBSD",
-      "operatingsystemrelease": [
-        "12",
-        "13"
-      ]
-    },
-    {
-      "operatingsystem": "Solaris"
     }
   ]
 }
