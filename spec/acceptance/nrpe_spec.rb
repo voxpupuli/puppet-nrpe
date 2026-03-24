@@ -8,8 +8,8 @@ describe 'nrpe class' do
     package_name = 'nagios-nrpe-server'
     service_name = 'nagios-nrpe-server'
   when 'FreeBSD'
-    package_name = 'nrpe3'
-    service_name = 'nrpe3'
+    package_name = 'nrpe'
+    service_name = 'nrpe'
   else
     service_name = 'nrpe'
     package_name = 'nrpe'

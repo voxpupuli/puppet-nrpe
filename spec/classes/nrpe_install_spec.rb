@@ -19,12 +19,11 @@ describe 'nrpe::install' do
         when 'Gentoo'
           it { is_expected.to contain_package('net-analyzer/nrpe').with_ensure('installed') }
           it { is_expected.to contain_package('net-analyzer/nagios-plugins').with_ensure('installed') }
-        when 'FreeBSD'
-          it { is_expected.to contain_package('nrpe3').with_ensure('installed') }
-          it { is_expected.to contain_package('nagios-plugins').with_ensure('installed') }
         else
           it { is_expected.to contain_package('nrpe').with_ensure('installed') }
-          it { is_expected.to contain_package('nagios-plugins-all').with_ensure('installed') }
+
+          plugins_pkg = facts[:os]['family'] == 'FreeBSD' ? 'nagios-plugins' : 'nagios-plugins-all'
+          it { is_expected.to contain_package(plugins_pkg).with_ensure('installed') }
         end
       end
 

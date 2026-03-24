@@ -36,7 +36,7 @@ describe 'nrpe::command' do
         it {
           is_expected.to contain_file('/usr/local/etc/nrpe.d/check_users.cfg').with(
             'mode' => '0644'
-          ).that_requires(['Package[nrpe3]'])
+          ).that_requires(['Package[nrpe]'])
         }
       else
         it {
