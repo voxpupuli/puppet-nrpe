@@ -506,6 +506,7 @@ The following parameters are available in the `nrpe::command` defined type:
 * [`file_mode`](#-nrpe--command--file_mode)
 * [`sudo`](#-nrpe--command--sudo)
 * [`sudo_user`](#-nrpe--command--sudo_user)
+* [`sudo_command`](#-nrpe--command--sudo_command)
 
 ##### <a name="-nrpe--command--name"></a>`name`
 
@@ -548,6 +549,10 @@ Data type: `String[1]`
 The user to run the command as when using sudo.
 
 Default value: `'root'`
+
+##### <a name="-nrpe--command--sudo_command"></a>`sudo_command`
+
+Path to the sudo command.
 
 ### <a name="nrpe--plugin"></a>`nrpe::plugin`
 

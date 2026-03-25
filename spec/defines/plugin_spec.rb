@@ -25,7 +25,7 @@ describe 'nrpe::plugin' do
       when 'Gentoo'
         it { is_expected.to contain_file('/usr/lib/nagios/plugins/check_users').that_requires('Package[net-analyzer/nrpe]') }
       when 'FreeBSD'
-        it { is_expected.to contain_file('/usr/local/libexec/nagios/check_users').that_requires('Package[nrpe3]') }
+        it { is_expected.to contain_file('/usr/local/libexec/nagios/check_users').that_requires('Package[nrpe]') }
       else
         it { is_expected.to contain_file('/usr/lib64/nagios/plugins/check_users').that_requires('Package[nrpe]') }
       end

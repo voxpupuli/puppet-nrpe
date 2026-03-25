@@ -28,6 +28,7 @@ class nrpe::params {
         'nagios-nrpe-server',
         'monitoring-plugins',
       ]
+      $sudo_command     = '/usr/bin/sudo'
       $user_home_dir    = '/var/lib/nagios'
       $user_shell       = '/bin/false'
     }
@@ -44,6 +45,7 @@ class nrpe::params {
         'nrpe',
         'nagios_plugins',
       ]
+      $sudo_command     = '/usr/bin/sudo'
       $user_home_dir    = '/var/lib/nagios'
       $user_shell       = '/bin/false'
     }
@@ -63,6 +65,7 @@ class nrpe::params {
         'nrpe',
         'nagios-plugins-all',
       ]
+      $sudo_command     = '/usr/bin/sudo'
       $user_home_dir    = '/var/run/nrpe'
       $user_shell       = '/sbin/nologin'
     }
@@ -70,15 +73,16 @@ class nrpe::params {
       $libdir           = '/usr/local/libexec/nagios'
       $nrpe_user        = 'nagios'
       $nrpe_group       = 'nagios'
-      $nrpe_pid_file    = '/var/run/nrpe3/nrpe3.pid'
+      $nrpe_pid_file    = '/var/run/nrpe/nrpe.pid'
       $nrpe_config      = '/usr/local/etc/nrpe.cfg'
       $nrpe_ssl_dir     = '/usr/local/etc/nrpe-ssl'
       $nrpe_include_dir = '/usr/local/etc/nrpe.d'
-      $nrpe_service     = 'nrpe3'
+      $nrpe_service     = 'nrpe'
       $nrpe_packages    = [
-        'nrpe3',
+        'nrpe',
         'nagios-plugins',
       ]
+      $sudo_command     = '/usr/local/bin/sudo'
       $user_home_dir    = '/var/spool/nagios'
       $user_shell       = '/sbin/nologin'
     }
@@ -95,6 +99,7 @@ class nrpe::params {
         'nrpe',
         'monitoring-plugins',
       ]
+      $sudo_command     = '/usr/bin/sudo'
       $user_home_dir    = '/var/lib/nagios'
       $user_shell       = '/bin/false'
     }
@@ -125,6 +130,7 @@ class nrpe::params {
           ]
         }
       }
+      $sudo_command     = '/usr/bin/sudo'
       $user_home_dir    = '/var/lib/nagios'
       $user_shell       = '/bin/false'
     }
@@ -144,6 +150,7 @@ class nrpe::params {
         'net-analyzer/nrpe',
         'net-analyzer/nagios-plugins',
       ]
+      $sudo_command     = '/usr/bin/sudo'
       $user_home_dir    = '/dev/null'
       $user_shell       = '/sbin/nologin'
     }
