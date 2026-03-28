@@ -13,7 +13,7 @@ describe 'nrpe::plugin' do
       let(:params) do
         {
           ensure: 'present',
-          source: 'puppet:///modules/profile/nrpe/check_users'
+          source: 'puppet:///modules/profile/nrpe/check_users',
         }
       end
 

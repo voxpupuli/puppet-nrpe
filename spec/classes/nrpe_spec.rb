@@ -20,12 +20,12 @@ describe 'nrpe' do
           {
             'commands' => {
               'check_users' => {
-                command: 'check_users -w 5 -c 10'
+                command: 'check_users -w 5 -c 10',
               },
               'check_load' => {
-                command: 'check_load -r -w 0.75, 0.7, 0.65 -c 0.85, 0.8, 0.75'
-              }
-            }
+                command: 'check_load -r -w 0.75, 0.7, 0.65 -c 0.85, 0.8, 0.75',
+              },
+            },
           }
         end
 
@@ -39,9 +39,9 @@ describe 'nrpe' do
             'plugins' => {
               'check_mem' => {
                 ensure: 'present',
-                source: 'puppet:///modules/site/nrpe/check_mem'
-              }
-            }
+                source: 'puppet:///modules/site/nrpe/check_mem',
+              },
+            },
           }
         end
 
@@ -110,39 +110,39 @@ describe 'nrpe' do
         case facts[:os]['family']
         when 'FreeBSD'
           it {
-            is_expected.to contain_user('nagios').
-              with_gid('nagios').
-              with_home('/var/spool/nagios').
-              with_shell('/sbin/nologin')
+            is_expected.to contain_user('nagios')
+              .with_gid('nagios')
+              .with_home('/var/spool/nagios')
+              .with_shell('/sbin/nologin')
           }
         when 'Gentoo'
           it {
-            is_expected.to contain_user('nagios').
-              with_gid('nagios').
-              with_home('/dev/null').
-              with_shell('/sbin/nologin')
+            is_expected.to contain_user('nagios')
+              .with_gid('nagios')
+              .with_home('/dev/null')
+              .with_shell('/sbin/nologin')
           }
 
         when 'OpenBSD'
           it {
-            is_expected.to contain_user('_nrpe').
-              with_gid('_nrpe').
-              with_home('/var/lib/nagios').
-              with_shell('/bin/false')
+            is_expected.to contain_user('_nrpe')
+              .with_gid('_nrpe')
+              .with_home('/var/lib/nagios')
+              .with_shell('/bin/false')
           }
         when 'RedHat'
           it {
-            is_expected.to contain_user('nrpe').
-              with_gid('nrpe').
-              with_home('/var/run/nrpe').
-              with_shell('/sbin/nologin')
+            is_expected.to contain_user('nrpe')
+              .with_gid('nrpe')
+              .with_home('/var/run/nrpe')
+              .with_shell('/sbin/nologin')
           }
         else
           it {
-            is_expected.to contain_user('nagios').
-              with_gid('nagios').
-              with_home('/var/lib/nagios').
-              with_shell('/bin/false')
+            is_expected.to contain_user('nagios')
+              .with_gid('nagios')
+              .with_home('/var/lib/nagios')
+              .with_shell('/bin/false')
           }
         end
       end
@@ -151,7 +151,7 @@ describe 'nrpe' do
         let(:params) do
           {
             'manage_group' => true,
-            'manage_user'  => true
+            'manage_user'  => true,
           }
         end
 
