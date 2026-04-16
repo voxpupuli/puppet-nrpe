@@ -1,12 +1,12 @@
 {
   "name": "puppet-nrpe",
-  "version": "6.0.1-rc0",
-  "source": "https://github.com/voxpupuli/puppet-nrpe",
+  "version": "6.0.1",
+  "source": "https://github.com/KpuCko/puppet-nrpe",
   "author": "Vox Pupuli",
   "license": "Apache-2.0",
   "summary": "Puppet module for NRPE",
-  "project_page": "https://github.com/voxpupuli/puppet-nrpe",
-  "issues_url": "https://github.com/voxpupuli/puppet-nrpe/issues",
+  "project_page": "https://github.com/KpuCko/puppet-nrpe",
+  "issues_url": "https://github.com/KpuCko/puppet-nrpe/issues",
   "dependencies": [
     {
       "name": "puppetlabs/concat",
@@ -14,13 +14,13 @@
     },
     {
       "name": "puppetlabs/stdlib",
-      "version_requirement": ">= 4.25.1 < 10.0.0"
+      "version_requirement": ">= 4.25.1 < 9.0.0"
     }
   ],
   "requirements": [
     {
       "name": "openvox",
-      "version_requirement": ">= 8.19.0 < 9.0.0"
+      "version_requirement": ">= 8.0.0 < 9.0.0"
     }
   ],
   "operatingsystem_support": [
@@ -51,18 +51,15 @@
     {
       "operatingsystem": "Debian",
       "operatingsystemrelease": [
-        "11",
-        "12",
-        "13"
+        "10",
+        "11"
       ]
     },
     {
       "operatingsystem": "Ubuntu",
       "operatingsystemrelease": [
         "18.04",
-        "20.04",
-        "22.04",
-        "24.04"
+        "20.04"
       ]
     },
     {
@@ -74,8 +71,8 @@
     {
       "operatingsystem": "FreeBSD",
       "operatingsystemrelease": [
-        "13",
-        "14"
+        "12",
+        "13"
       ]
     },
     {
