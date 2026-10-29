@@ -619,4 +619,3 @@ Alias of `Enum['SSLv2', 'SSLv2+', 'SSLv3', 'SSLv3+', 'TLSv1', 'TLSv1+', 'TLSv1.1
 The Nrpe::Syslogfacility data type.
 
 Alias of `Enum['user', 'mail', 'daemon', 'auth', 'syslog', 'lpr', 'news', 'uucp', 'cron', 'authpriv', 'ftp', 'ntp', 'security', 'console', 'solaris-cron', 'local0', 'local1', 'local2', 'local3', 'local4', 'local5', 'local6', 'local7']`
-
