@@ -14,6 +14,10 @@
 #   Whether to install or remove the command.
 # @param file_mode
 #   The mode to use for the command file.  By default, this parameter is `undef`, and the command file will use `$nrpe::command_file_default_mode`.
+# @param owner
+#   The command file owner.
+# @param group
+#   The command file group. When `undef`, uses `$nrpe::params::nrpe_files_group`.
 # @param sudo
 #   Whether the command should use sudo.
 # @param sudo_user
@@ -24,6 +28,8 @@ define nrpe::command (
   String[1]                  $command,
   Enum['present', 'absent']  $ensure    = present,
   Optional[Stdlib::Filemode] $file_mode = undef,
+  String[1]                  $owner     = 'root',
+  Optional[String[1]]        $group     = undef,
   Boolean                    $sudo      = false,
   String[1]                  $sudo_user = 'root',
 ) {
@@ -42,8 +48,8 @@ define nrpe::command (
         'libdir'       => $nrpe::params::libdir,
       },
     ),
-    owner   => 'root',
-    group   => $nrpe::params::nrpe_files_group,
+    owner   => $owner,
+    group   => pick($group, $nrpe::params::nrpe_files_group),
     mode    => pick($file_mode, $nrpe::command_file_default_mode),
   }
 }
