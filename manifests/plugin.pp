@@ -14,10 +14,19 @@
 #   Defines the actual content of the plugin file.  Should not be used in conjunction with `source`.
 # @param source
 #   Defines the source of the plugin file. Should not be used in conjunction with `content`.
+# @param file_mode
+#   The plugin file mode. When `undef`, uses `$nrpe::params::nrpe_plugin_file_mode`.
+# @param owner
+#   The plugin file owner.
+# @param group
+#   The plugin file group. When `undef`, uses `$nrpe::params::nrpe_files_group`.
 define nrpe::plugin (
-  Enum['present', 'absent']    $ensure  = present,
-  Optional[String[1]]          $content = undef,
-  Optional[Stdlib::Filesource] $source  = undef,
+  Enum['present', 'absent']    $ensure    = present,
+  Optional[String[1]]          $content   = undef,
+  Optional[Stdlib::Filesource] $source    = undef,
+  Optional[Stdlib::Filemode]   $file_mode = undef,
+  String[1]                    $owner     = 'root',
+  Optional[String[1]]          $group     = undef,
 ) {
   include nrpe
 
@@ -30,8 +39,8 @@ define nrpe::plugin (
     ensure  => $ensure,
     content => $content,
     source  => $source,
-    owner   => 'root',
-    group   => $nrpe::params::nrpe_files_group,
-    mode    => $nrpe::params::nrpe_plugin_file_mode,
+    owner   => $owner,
+    group   => pick($group, $nrpe::params::nrpe_files_group),
+    mode    => pick($file_mode, $nrpe::params::nrpe_plugin_file_mode),
   }
 }

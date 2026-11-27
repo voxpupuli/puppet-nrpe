@@ -17,17 +17,61 @@ describe 'nrpe::plugin' do
         }
       end
 
+      let(:platform) do
+        case facts[:os]['family']
+        when 'Debian'
+          {
+            file: '/usr/lib/nagios/plugins/check_users',
+            package: 'nagios-nrpe-server',
+            group: 'root',
+          }
+        when 'FreeBSD'
+          {
+            file: '/usr/local/libexec/nagios/check_users',
+            package: 'nrpe',
+            group: 'wheel',
+          }
+        when 'Gentoo'
+          {
+            file: '/usr/lib64/nagios/plugins/check_users',
+            package: 'net-analyzer/nrpe',
+            group: 'root',
+          }
+        else
+          {
+            file: '/usr/lib64/nagios/plugins/check_users',
+            package: 'nrpe',
+            group: 'root',
+          }
+        end
+      end
+
       it { is_expected.to compile.with_all_deps }
 
-      case facts[:os]['family']
-      when 'Debian'
-        it { is_expected.to contain_file('/usr/lib/nagios/plugins/check_users').that_requires('Package[nagios-nrpe-server]') }
-      when 'Gentoo'
-        it { is_expected.to contain_file('/usr/lib/nagios/plugins/check_users').that_requires('Package[net-analyzer/nrpe]') }
-      when 'FreeBSD'
-        it { is_expected.to contain_file('/usr/local/libexec/nagios/check_users').that_requires('Package[nrpe]') }
-      else
-        it { is_expected.to contain_file('/usr/lib64/nagios/plugins/check_users').that_requires('Package[nrpe]') }
+      it do
+        is_expected.to contain_file(platform[:file]).with(
+          'owner' => 'root',
+          'group' => platform[:group],
+          'mode'  => '0755',
+        ).that_requires("Package[#{platform[:package]}]")
+      end
+
+      context 'with a custom owner, group and mode' do
+        let(:params) do
+          super().merge(
+            owner: 'nagios',
+            group: 'nagios',
+            file_mode: '0750',
+          )
+        end
+
+        it do
+          is_expected.to contain_file(platform[:file]).with(
+            'owner' => 'nagios',
+            'group' => 'nagios',
+            'mode'  => '0750',
+          )
+        end
       end
     end
   end

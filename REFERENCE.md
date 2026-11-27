@@ -504,6 +504,8 @@ The following parameters are available in the `nrpe::command` defined type:
 * [`command`](#-nrpe--command--command)
 * [`ensure`](#-nrpe--command--ensure)
 * [`file_mode`](#-nrpe--command--file_mode)
+* [`owner`](#-nrpe--command--owner)
+* [`group`](#-nrpe--command--group)
 * [`sudo`](#-nrpe--command--sudo)
 * [`sudo_user`](#-nrpe--command--sudo_user)
 * [`sudo_command`](#-nrpe--command--sudo_command)
@@ -531,6 +533,22 @@ Default value: `present`
 Data type: `Optional[Stdlib::Filemode]`
 
 The mode to use for the command file.  By default, this parameter is `undef`, and the command file will use `$nrpe::command_file_default_mode`.
+
+Default value: `undef`
+
+##### <a name="-nrpe--command--owner"></a>`owner`
+
+Data type: `String[1]`
+
+The command file owner.
+
+Default value: `'root'`
+
+##### <a name="-nrpe--command--group"></a>`group`
+
+Data type: `Optional[String[1]]`
+
+The command file group. When `undef`, uses `$nrpe::params::nrpe_files_group`.
 
 Default value: `undef`
 
@@ -577,6 +595,9 @@ The following parameters are available in the `nrpe::plugin` defined type:
 * [`ensure`](#-nrpe--plugin--ensure)
 * [`content`](#-nrpe--plugin--content)
 * [`source`](#-nrpe--plugin--source)
+* [`file_mode`](#-nrpe--plugin--file_mode)
+* [`owner`](#-nrpe--plugin--owner)
+* [`group`](#-nrpe--plugin--group)
 
 ##### <a name="-nrpe--plugin--name"></a>`name`
 
@@ -603,6 +624,30 @@ Default value: `undef`
 Data type: `Optional[Stdlib::Filesource]`
 
 Defines the source of the plugin file. Should not be used in conjunction with `content`.
+
+Default value: `undef`
+
+##### <a name="-nrpe--plugin--file_mode"></a>`file_mode`
+
+Data type: `Optional[Stdlib::Filemode]`
+
+The plugin file mode. When `undef`, uses `$nrpe::params::nrpe_plugin_file_mode`.
+
+Default value: `undef`
+
+##### <a name="-nrpe--plugin--owner"></a>`owner`
+
+Data type: `String[1]`
+
+The plugin file owner.
+
+Default value: `'root'`
+
+##### <a name="-nrpe--plugin--group"></a>`group`
+
+Data type: `Optional[String[1]]`
+
+The plugin file group. When `undef`, uses `$nrpe::params::nrpe_files_group`.
 
 Default value: `undef`
 
