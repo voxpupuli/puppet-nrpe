@@ -3,6 +3,10 @@
 require 'spec_helper'
 
 describe 'nrpe' do
+  it 'includes Gentoo in the supported operating systems' do
+    expect(on_supported_os.keys).to include(a_string_starting_with('gentoo-'))
+  end
+
   on_supported_os.each do |os, facts|
     context "on #{os}" do
       let :facts do
