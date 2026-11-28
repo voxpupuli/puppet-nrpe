@@ -102,11 +102,12 @@ This module has been documented with [puppet-strings](https://github.com/puppetl
 ### Redhat
 
  * This module requires the EPEL repositories to be enabled
+ * On EL9 and later, the CRB repository (PowerTools on EL8) must also be enabled
  * This module currently does not manage the firewall rules
 
 ### Oracle Linux
 
-* This module requires the EPEL and Optional Updates repositories to be enabled
+* This module requires the EPEL and CodeReady Builder repositories to be enabled
 
 ### Solaris
 
